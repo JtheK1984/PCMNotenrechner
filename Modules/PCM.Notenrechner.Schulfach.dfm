@@ -21,8 +21,8 @@ object frm_Notenrechner_Schulfach: Tfrm_Notenrechner_Schulfach
     PanelStyle.Active = True
     Style.BorderStyle = ebsNone
     TabOrder = 0
-    ExplicitWidth = 627
-    ExplicitHeight = 182
+    ExplicitTop = 58
+    ExplicitHeight = 188
     Height = 183
     Width = 631
     object cxGrid3: TcxGrid
@@ -42,8 +42,7 @@ object frm_Notenrechner_Schulfach: Tfrm_Notenrechner_Schulfach
       ParentFont = False
       TabOrder = 0
       LockedStateImageOptions.Effect = lsieDark
-      ExplicitWidth = 621
-      ExplicitHeight = 176
+      ExplicitHeight = 182
       object tvData: TcxGridDBTableView
         Navigator.Buttons.CustomButtons = <>
         FilterBox.CustomizeDialog = False
@@ -135,6 +134,7 @@ object frm_Notenrechner_Schulfach: Tfrm_Notenrechner_Schulfach
     ImageOptions.LargeImages = dm_PCM.imglst_32x32
     NotDocking = [dsNone, dsLeft, dsTop, dsRight, dsBottom]
     PopupMenuLinks = <>
+    Style = bmsUseLookAndFeel
     UseSystemFont = True
     Left = 272
     Top = 128

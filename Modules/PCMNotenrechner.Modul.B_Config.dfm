@@ -23,9 +23,9 @@ object frm_Config: Tfrm_Config
     Height = 922
     Width = 1195
     object pc_Options: TcxPageControl
-      Left = 2
-      Top = 2
-      Width = 1191
+      Left = 3
+      Top = 3
+      Width = 1189
       Height = 922
       Align = alTop
       Color = clBtnFace
@@ -39,25 +39,27 @@ object frm_Config: Tfrm_Config
       Properties.TabSlants.Kind = skCutCorner
       Properties.TabWidth = 100
       LookAndFeel.SkinName = 'DevExpressDarkStyle'
-      ClientRectBottom = 918
-      ClientRectLeft = 4
-      ClientRectRight = 1187
-      ClientRectTop = 25
+      ClientRectBottom = 916
+      ClientRectLeft = 2
+      ClientRectRight = 1183
+      ClientRectTop = 28
       object ts_D_Personal: TcxTabSheet
         Caption = 'Personalisierung'
         ImageIndex = 2
         object grpbx_DesignStyle: TcxGroupBox
           Left = 0
-          Top = 58
+          Top = 63
           Align = alClient
           Caption = 'Programmdesign'
           TabOrder = 0
-          Height = 835
-          Width = 1183
+          ExplicitTop = 58
+          ExplicitHeight = 830
+          Height = 825
+          Width = 1181
           object grpbx_vorschau: TcxGroupBox
             AlignWithMargins = True
-            Left = 2
-            Top = 80
+            Left = 3
+            Top = 77
             Margins.Left = 0
             Margins.Top = 0
             Margins.Right = 0
@@ -65,8 +67,9 @@ object frm_Config: Tfrm_Config
             Align = alClient
             Caption = 'Vorschau'
             TabOrder = 2
-            Height = 753
-            Width = 1179
+            ExplicitHeight = 744
+            Height = 739
+            Width = 1175
             object img_Vorschau: TcxImage
               Left = 3
               Top = 20
@@ -372,18 +375,18 @@ object frm_Config: Tfrm_Config
             end
           end
           object grpbx_Style: TcxGroupBox
-            Left = 2
-            Top = 49
+            Left = 3
+            Top = 46
             Align = alTop
             PanelStyle.Active = True
             Style.BorderStyle = ebsNone
             TabOrder = 1
             Height = 31
-            Width = 1179
+            Width = 1175
             object cmbbx_Style: TcxComboBox
               AlignWithMargins = True
-              Left = 126
-              Top = 4
+              Left = 127
+              Top = 5
               Margins.Left = 8
               Margins.Top = 2
               Margins.Right = 8
@@ -445,8 +448,8 @@ object frm_Config: Tfrm_Config
             end
             object lbl_Style: TcxLabel
               AlignWithMargins = True
-              Left = 9
-              Top = 6
+              Left = 10
+              Top = 7
               Margins.Left = 7
               Margins.Top = 4
               Margins.Right = 7
@@ -455,23 +458,23 @@ object frm_Config: Tfrm_Config
               AutoSize = False
               Caption = 'Style:'
               Transparent = True
-              Height = 19
+              Height = 17
               Width = 102
             end
           end
           object grpbx_Design: TcxGroupBox
-            Left = 2
-            Top = 18
+            Left = 3
+            Top = 15
             Align = alTop
             PanelStyle.Active = True
             Style.BorderStyle = ebsNone
             TabOrder = 0
             Height = 31
-            Width = 1179
+            Width = 1175
             object lbl_design: TcxLabel
               AlignWithMargins = True
-              Left = 9
-              Top = 6
+              Left = 10
+              Top = 7
               Margins.Left = 7
               Margins.Top = 4
               Margins.Right = 7
@@ -480,13 +483,13 @@ object frm_Config: Tfrm_Config
               AutoSize = False
               Caption = 'Design:'
               Transparent = True
-              Height = 19
+              Height = 17
               Width = 102
             end
             object cmbbx_Design: TcxComboBox
               AlignWithMargins = True
-              Left = 126
-              Top = 4
+              Left = 127
+              Top = 5
               Margins.Left = 8
               Margins.Top = 2
               Margins.Right = 8
@@ -561,8 +564,8 @@ object frm_Config: Tfrm_Config
         object dckctrl_Personal: TdxBarDockControl
           Left = 0
           Top = 0
-          Width = 1183
-          Height = 58
+          Width = 1181
+          Height = 63
           Align = dalTop
           BarManager = brmgr_Config
         end
@@ -586,6 +589,7 @@ object frm_Config: Tfrm_Config
     ImageOptions.LargeIcons = True
     NotDocking = [dsNone, dsLeft, dsTop, dsRight, dsBottom]
     PopupMenuLinks = <>
+    Style = bmsUseLookAndFeel
     UseSystemFont = True
     Left = 400
     Top = 313

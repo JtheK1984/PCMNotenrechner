@@ -143,7 +143,6 @@ end;
 procedure Tfrm_Config.FormShow(Sender: TObject);
 begin
   pc_options.Align:= alclient;
-  dm_PCM.ReadServerAdress;
   cmbbx_Design.ItemIndex := cmbbx_Design.Properties.Items.IndexOf(dm_PCM.sDesign);
   cmbbx_Style.ItemIndex := cmbbx_Style.Properties.Items.IndexOf(dm_PCM.sStyle);
   if dm_PCM.bStyle then

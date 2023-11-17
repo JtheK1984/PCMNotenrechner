@@ -95,7 +95,6 @@ type
     procedure FormShow(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure SetButtonsEnableVisible(DataSet: TDataSet);
-    procedure FormPaint(Sender: TObject);
   private
     { Private-Deklarationen }
     SaveGridViewNoten,SaveGridViewNotenDet: TSavedGridView;
@@ -143,34 +142,6 @@ procedure Tfrm_Noten.FormDestroy(Sender: TObject);
 begin
   SetGridViews(False);
 end;
-procedure Tfrm_Noten.FormPaint(Sender: TObject);
-begin
-  opendata;
-  InitializeRights;
-  SetButtons;
-  SetGridViews(True);
-  if dm_PCM.bAlleBenutzer then
-  begin
-    qAverage.sql.Text:=  'Select SUM(n.Note * nt.Faktor)  / SUM(nt.faktor) as Summe,nf.Bezeichnung,nf.Vorrueckung, b.Benutzer ' +
-                        'From notenrechner_noten n ' +
-                        'LEFT OUTER JOIN Benutzer B ON b.ID= n.ID_Benutzer ' +
-                        'LEFT OUTER JOIN Notenrechner_typ nt ON nt.ID = n.ID_NotenTyp ' +
-                        'LEFT OUTER JOIN Notenrechner_Faecher nf ON nf.ID = n.ID_NotenFach ' +
-                        'Group by nf.Bezeichnung, nf.Vorrueckung';
-  end
-  else begin
-    qAverage.sql.Text:=  'Select SUM(n.Note * nt.Faktor)  / SUM(nt.faktor) as Summe,nf.Bezeichnung,nf.Vorrueckung, b.Benutzer ' +
-                       'From Notenrechner_noten n ' +
-                       'LEFT OUTER JOIN Benutzer B ON b.ID= n.ID_Benutzer ' +
-                       'LEFT OUTER JOIN Notenrechner_typ nt ON nt.ID = n.ID_NotenTyp ' +
-                       'LEFT OUTER JOIN Notenrechner_Faecher nf ON nf.ID = n.ID_NotenFach ' +
-                       'Where n.ID_benutzer = :ID_Benutzer' +
-                       ' Group by nf.Bezeichnung, nf.Vorrueckung';
-    qAverage.ParamByName('ID_Benutzer').AsInteger:= dm_PCM.iIDBenutzerPCM;
-  end;
-  qAverage.open;
-end;
-
 procedure Tfrm_Noten.SetGridViews(Show:boolean);
 begin
   if Show then

@@ -12,7 +12,6 @@ object frm_Noten: Tfrm_Noten
   Font.Name = 'Segoe UI'
   Font.Style = []
   OnDestroy = FormDestroy
-  OnPaint = FormPaint
   OnShow = FormShow
   TextHeight = 15
   object cxGroupBox1: TcxGroupBox
@@ -53,6 +52,10 @@ object frm_Noten: Tfrm_Noten
       object ts_Noten_Durchschnitt: TcxTabSheet
         Caption = 'Noten'#252'bersicht Durchschnitt'
         ImageIndex = 79
+        ExplicitLeft = 0
+        ExplicitTop = 0
+        ExplicitWidth = 0
+        ExplicitHeight = 0
         object cxGroupBox12: TcxGroupBox
           Left = 0
           Top = 0
@@ -157,9 +160,9 @@ object frm_Noten: Tfrm_Noten
         ImageIndex = 79
         object cxScrollBox1: TcxScrollBox
           Left = 0
-          Top = 63
+          Top = 58
           Width = 996
-          Height = 752
+          Height = 757
           Align = alClient
           TabOrder = 0
           object cxGroupBox13: TcxGroupBox
@@ -168,13 +171,13 @@ object frm_Noten: Tfrm_Noten
             Align = alClient
             Caption = 'Noten'#252'bersicht'
             TabOrder = 1
-            Height = 674
+            Height = 679
             Width = 994
             object grd_Noten_Detail: TcxGrid
               Left = 3
               Top = 15
               Width = 988
-              Height = 650
+              Height = 655
               Align = alClient
               BevelInner = bvNone
               BorderStyle = cxcbsNone
@@ -466,7 +469,7 @@ object frm_Noten: Tfrm_Noten
           Left = 0
           Top = 0
           Width = 996
-          Height = 63
+          Height = 58
           Align = dalTop
           BarManager = dxBarManager1
         end
