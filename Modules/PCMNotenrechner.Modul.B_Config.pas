@@ -30,7 +30,7 @@ uses
   cxGridCustomTableView, cxGridTableView, cxGridDBTableView, cxGridCustomView,
   cxGrid, Vcl.StdCtrls, cxRadioGroup, cxCheckBox, cxTextEdit, cxLabel,
   cxButtons, dxGDIPlusClasses, cxImage, cxGroupBox, cxPC,inifiles, Vcl.Themes,system.UITypes,
-  dxSkinWXI;
+  dxSkinWXI, Vcl.VirtualImage, Vcl.BaseImageCollection, Vcl.ImageCollection;
 
 type
   Tfrm_Config = class(TForm)
@@ -38,7 +38,6 @@ type
     ts_D_Personal: TcxTabSheet;
     grpbx_DesignStyle: TcxGroupBox;
     grpbx_vorschau: TcxGroupBox;
-    img_Vorschau: TcxImage;
     pnl_Vorschau: TcxGroupBox;
     des_ToolButton3: TcxButton;
     des_ToolButton2: TcxButton;
@@ -68,6 +67,8 @@ type
     btn_DesignSave: TdxBarLargeButton;
     pnl_right: TcxGroupBox;
     cxImageList1: TcxImageList;
+    img_Vorschau: TVirtualImage;
+    ImageCollection1: TImageCollection;
     procedure FormShow(Sender: TObject);
     procedure btn_DesignSaveClick(Sender: TObject);
     procedure cbx_DesignPropertiesChange(Sender: TObject);
@@ -110,12 +111,12 @@ end;
 procedure Tfrm_Config.cbx_StylePropertiesChange(Sender: TObject);
 begin
   if cmbbx_Style.ItemIndex > -1 then
-    cxImageList1.GetIcon(cmbbx_Style.ItemIndex, img_Vorschau.Picture.Icon);
+    img_Vorschau.imageindex:=cmbbx_Style.ItemIndex;
 end;
 procedure Tfrm_Config.cmbbx_StylePropertiesChange(Sender: TObject);
 begin
   if cmbbx_Style.ItemIndex > -1 then
-    cxImageList1.GetIcon(cmbbx_Style.itemindex, img_Vorschau.Picture.Icon);
+    img_Vorschau.imageindex:=cmbbx_Style.itemindex;
 end;
 
 procedure Tfrm_Config.btn_DesignSaveClick(Sender: TObject);
@@ -147,7 +148,6 @@ begin
   cmbbx_Style.ItemIndex := cmbbx_Style.Properties.Items.IndexOf(dm_PCM.sStyle);
   if dm_PCM.bStyle then
     pc_Options.ActivePage := ts_D_Personal;
-  img_Vorschau.Width:= pnl_Vorschau.Width + 10;
 end;
 
 end.
