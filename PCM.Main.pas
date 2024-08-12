@@ -189,7 +189,7 @@ begin
 end;
 procedure Tfrm_PCM_Main.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
-  WriteLog(PCM_Logname,'Programm beendet',0);
+  WriteLog(PCM_Logname,rs_PCM_Beenden,0);
   bol_Close:= true
 end;
 procedure Tfrm_PCM_Main.FormDeactivate(Sender: TObject);
@@ -275,7 +275,7 @@ begin
       loc_lang.LanguageIndex := 1;
       LoadSQLs;
       FormResize(Self);
-      WriteLog(PCM_Logname,'Programm gestartet',0);
+      WriteLog(PCM_Logname,rs_PCM_Start,0);
       Caption:=PCM_Programmname;
       if dm_PCM.bDemo then
         Caption:=PCM_Programmname + ' - Demolizenz gültig bis ' + DateTostr(dm_PCM.dtGueltig);
