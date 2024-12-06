@@ -8,11 +8,11 @@ uses
   Vcl.Forms,
   Vcl.Themes,
   Vcl.Styles,
+  Windows,
   PCM.Main in 'PCM.Main.pas' {frm_PCM_Main},
   PCM.Data in 'PCM.Data.pas' {dm_PCM: TDataModule},
   PCM.Notenrechner.Schulfach in 'Modules\PCM.Notenrechner.Schulfach.pas' {frm_Notenrechner_Schulfach},
   PCM.Notenrechner.Notentyp in 'Modules\PCM.Notenrechner.Notentyp.pas' {frm_Notenrechner_Notentyp},
-  PCMNotenrechner.Modul.B_Config in 'Modules\PCMNotenrechner.Modul.B_Config.pas' {frm_Config},
   PCMNotenrechner.Modul.C_Noten in 'Modules\PCMNotenrechner.Modul.C_Noten.pas' {frm_Noten};
 
 {$R *.res}
@@ -32,7 +32,7 @@ begin
   ifini.Free;
   GlobalWebView2Loader                := TWVLoader.Create(nil);
   GlobalWebView2Loader.UserDataFolder := GetEnvironmentVariable('LOCALAPPDATA') + '\PCM\CustomCache';
-  GlobalWebView2Loader.StartWebView2
+  GlobalWebView2Loader.StartWebView2;
   Application.Initialize;
   TStyleManager.TrySetStyle(sStyle);
   {$IFDEF WIN64}

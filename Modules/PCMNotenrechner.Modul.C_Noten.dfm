@@ -52,10 +52,6 @@ object frm_Noten: Tfrm_Noten
       object ts_Noten_Durchschnitt: TcxTabSheet
         Caption = 'Noten'#252'bersicht Durchschnitt'
         ImageIndex = 79
-        ExplicitLeft = 0
-        ExplicitTop = 0
-        ExplicitWidth = 0
-        ExplicitHeight = 0
         object cxGroupBox12: TcxGroupBox
           Left = 0
           Top = 0

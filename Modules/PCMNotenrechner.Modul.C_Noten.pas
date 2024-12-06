@@ -308,7 +308,7 @@ begin
     qnoten.FieldByName('ID_Benutzer').AsInteger:= dm_PCM.iIDBenutzerPCM;
     qnoten.Post;
     NewAverage(Sender);
-    frm_PCM_Main.LoadSQLs;
+    frm_PCM_Main.Loaddata;
   end;
 end;
 

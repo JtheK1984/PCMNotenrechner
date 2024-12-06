@@ -19,17 +19,18 @@ object frm_PCM_Main: Tfrm_PCM_Main
   OnResize = FormResize
   OnShow = FormShow
   TextHeight = 13
-  object nb_main: TdxNavBar
+  object navbr_main: TdxNavBar
     Left = 0
-    Top = 0
+    Top = 35
     Width = 200
-    Height = 800
+    Height = 765
     Align = alLeft
     ActiveGroupIndex = 0
     TabOrder = 0
     View = 14
     OptionsImage.SmallImages = dm_PCM.imglst_16x16
-    ExplicitHeight = 799
+    ExplicitTop = 0
+    ExplicitHeight = 800
     object nb_Optionen: TdxNavBarGroup
       Caption = 'Optionen'
       SelectedLinkIndex = -1
@@ -39,7 +40,7 @@ object frm_PCM_Main: Tfrm_PCM_Main
           Item = nbi_User
         end
         item
-          Item = nb_mainItem1
+          Item = navbr_mainItem1
         end>
     end
     object nb_Noten: TdxNavBarGroup
@@ -51,7 +52,7 @@ object frm_PCM_Main: Tfrm_PCM_Main
           Item = nbi_Noten
         end>
     end
-    object nb_mainGroup1: TdxNavBarGroup
+    object navbr_mainGroup1: TdxNavBarGroup
       Caption = 'Info'
       SelectedLinkIndex = -1
       TopVisibleLinkIndex = 0
@@ -81,22 +82,18 @@ object frm_PCM_Main: Tfrm_PCM_Main
     object nbi_User: TdxNavBarItem
       Caption = 'Benutzerverwaltung'
       SmallImageIndex = 1
-      OnClick = nbi_UserClick
     end
     object nbi_Noten: TdxNavBarItem
       Caption = 'Noten'#252'bersicht'
       SmallImageIndex = 79
-      OnClick = nbi_NotenClick
     end
     object nbi_Systeminfo: TdxNavBarItem
       Caption = 'Systeminfo'
       SmallImageIndex = 21
-      OnClick = nbi_SysteminfoClick
     end
     object nb_Programminfo: TdxNavBarItem
       Caption = 'Info'
       SmallImageIndex = 7
-      OnClick = nb_ProgramminfoClick
     end
     object nbi_Beenden: TdxNavBarItem
       Caption = 'Beenden'
@@ -111,30 +108,28 @@ object frm_PCM_Main: Tfrm_PCM_Main
     object nb_Abmelden: TdxNavBarItem
       Caption = 'Abmelden'
       SmallImageIndex = 23
-      OnClick = nb_AbmeldenClick
     end
-    object nb_mainItem1: TdxNavBarItem
-      Caption = 'Konfiguration'
+    object navbr_mainItem1: TdxNavBarItem
+      Caption = 'Design'
       SmallImageIndex = 2
-      OnClick = nb_mainItem1Click
     end
   end
   object pnl_MainRight: TcxGroupBox
     Left = 200
-    Top = 0
+    Top = 35
     Align = alClient
     PanelStyle.Active = True
     Style.BorderStyle = ebsNone
     TabOrder = 1
-    ExplicitWidth = 1076
-    ExplicitHeight = 799
-    Height = 800
+    ExplicitTop = 0
+    ExplicitHeight = 800
+    Height = 765
     Width = 1080
-    object pcmain: TcxPageControl
+    object pc_main: TcxPageControl
       Left = 3
       Top = 3
       Width = 1074
-      Height = 794
+      Height = 759
       Margins.Left = 0
       Margins.Top = 0
       Margins.Right = 0
@@ -149,17 +144,15 @@ object frm_PCM_Main: Tfrm_PCM_Main
       Properties.CustomButtons.Buttons = <>
       Properties.Images = dm_PCM.imglst_16x16
       Properties.Options = [pcoAlwaysShowGoDialogButton, pcoGradient, pcoGradientClientArea, pcoRedrawOnResize, pcoSort]
-      ExplicitWidth = 1070
-      ExplicitHeight = 793
-      ClientRectBottom = 788
+      ExplicitHeight = 794
+      ClientRectBottom = 753
       ClientRectLeft = 2
       ClientRectRight = 1068
       ClientRectTop = 28
       object ts_B_Cal_TodoChart: TcxTabSheet
         Caption = 'Dashboard'
         ImageIndex = 81
-        ExplicitWidth = 1062
-        ExplicitHeight = 759
+        ExplicitHeight = 760
         object pnl_DashboardContacts: TcxGroupBox
           Left = 0
           Top = 0
@@ -168,9 +161,8 @@ object frm_PCM_Main: Tfrm_PCM_Main
           Style.BorderStyle = ebsNone
           Style.Edges = [bLeft, bTop, bRight, bBottom]
           TabOrder = 0
-          ExplicitWidth = 1062
-          ExplicitHeight = 759
-          Height = 760
+          ExplicitHeight = 760
+          Height = 725
           Width = 1066
           object pnl_Contactmiddle: TcxGroupBox
             Left = 3
@@ -180,19 +172,19 @@ object frm_PCM_Main: Tfrm_PCM_Main
             Style.BorderStyle = ebsFlat
             Style.Edges = [bLeft, bTop, bRight, bBottom]
             TabOrder = 0
-            ExplicitHeight = 443
-            Height = 444
+            ExplicitHeight = 444
+            Height = 409
             Width = 491
             object chartctrl_Contact: TdxChartControl
               Left = 3
               Top = 15
               Width = 485
-              Height = 420
+              Height = 385
               Align = alClient
               BorderStyle = cxcbsNone
               Legend.Title.Visible = False
               Titles = <>
-              ExplicitHeight = 419
+              ExplicitHeight = 420
               object chartctrl_ContactChart: TdxChartSimpleDiagram
                 Title.Visible = False
                 Layout = Horizontal
@@ -224,21 +216,19 @@ object frm_PCM_Main: Tfrm_PCM_Main
             Style.BorderStyle = ebsFlat
             Style.Edges = [bLeft, bTop, bRight, bBottom]
             TabOrder = 1
-            ExplicitWidth = 565
-            ExplicitHeight = 443
-            Height = 444
+            ExplicitHeight = 444
+            Height = 409
             Width = 569
             object chartctrl_Adresses: TdxChartControl
               Left = 8
               Top = 15
               Width = 558
-              Height = 420
+              Height = 385
               Align = alClient
               BorderStyle = cxcbsNone
               Legend.Title.Visible = False
               Titles = <>
-              ExplicitWidth = 554
-              ExplicitHeight = 419
+              ExplicitHeight = 420
               object chartctrl_AdressesChart: TdxChartSimpleDiagram
                 Title.Visible = False
                 Layout = Horizontal
@@ -269,9 +259,9 @@ object frm_PCM_Main: Tfrm_PCM_Main
               Left = 3
               Top = 15
               Width = 5
-              Height = 420
+              Height = 385
               Control = pnl_Contactmiddle
-              ExplicitHeight = 419
+              ExplicitHeight = 420
             end
           end
           object pnl_ContactTop: TcxGroupBox
@@ -282,7 +272,6 @@ object frm_PCM_Main: Tfrm_PCM_Main
             Style.BorderStyle = ebsFlat
             Style.Edges = [bLeft, bTop, bRight, bBottom]
             TabOrder = 2
-            ExplicitWidth = 1056
             Height = 305
             Width = 1060
             object chartctrl_Birthday: TdxChartControl
@@ -294,7 +283,6 @@ object frm_PCM_Main: Tfrm_PCM_Main
               BorderStyle = cxcbsNone
               Legend.Title.Visible = False
               Titles = <>
-              ExplicitWidth = 1050
               object chartctrl_BirthdayChart: TdxChartSimpleDiagram
                 Title.Visible = False
                 Layout = Horizontal
@@ -322,7 +310,6 @@ object frm_PCM_Main: Tfrm_PCM_Main
             Height = 5
             AlignSplitter = salBottom
             Control = pnl_ContactTop
-            ExplicitWidth = 1056
           end
         end
       end
@@ -335,14 +322,14 @@ object frm_PCM_Main: Tfrm_PCM_Main
   end
   object lafCtrl_Main: TcxLookAndFeelController
     Kind = lfFlat
-    NativeStyle = False
     ScrollbarMode = sbmClassic
+    ScrollMode = scmClassic
     SkinName = 'DevExpressDarkStyle'
     RenderMode = rmGDIPlus
     Left = 304
     Top = 264
   end
-  object TrayIcon1: TTrayIcon
+  object trayic_main: TTrayIcon
     Icons = dm_PCM.imglst_16x16
     IconIndex = 80
     Visible = True
@@ -386,6 +373,136 @@ object frm_PCM_Main: Tfrm_PCM_Main
       Caption = 'Beenden'
       ImageIndex = 0
       OnClick = ppmbtn_BeendenClick
+    end
+  end
+  object brmgr_main: TdxBarManager
+    AutoHideEmptyBars = True
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = 'Segoe UI'
+    Font.Style = []
+    CanCustomize = False
+    Categories.Strings = (
+      'Default'
+      'pmModullisteOptionen')
+    Categories.ItemsVisibles = (
+      2
+      2)
+    Categories.Visibles = (
+      True
+      True)
+    ImageOptions.ImageListBkColor = clBlack
+    ImageOptions.StretchGlyphs = False
+    LargeButtonArrowWidth = 16
+    LookAndFeel.Kind = lfFlat
+    LookAndFeel.NativeStyle = False
+    MenusShowRecentItemsFirst = False
+    NotDocking = [dsNone, dsLeft, dsTop, dsRight, dsBottom]
+    PopupMenuLinks = <>
+    Style = bmsUseLookAndFeel
+    UseSystemFont = True
+    Left = 472
+    Top = 192
+    PixelsPerInch = 96
+    DockControlHeights = (
+      0
+      0
+      35
+      0)
+    object tb_Main: TdxBar
+      AllowClose = False
+      AllowCustomizing = False
+      AllowQuickCustomizing = False
+      Caption = 'Hauptbar'
+      CaptionButtons = <>
+      DockedDockingStyle = dsTop
+      DockedLeft = 0
+      DockedTop = 0
+      DockingStyle = dsTop
+      FloatLeft = 669
+      FloatTop = 8
+      FloatClientWidth = 0
+      FloatClientHeight = 0
+      ItemLinks = <
+        item
+          Visible = True
+          ItemName = 'btn_Modulleiste'
+        end
+        item
+          BeginGroup = True
+          Visible = True
+          ItemName = 'brstc_OpenModule'
+        end
+        item
+          Visible = True
+          ItemName = 'brstc_User'
+        end
+        item
+          BeginGroup = True
+          Visible = True
+          ItemName = 'btn_RefreshRights'
+        end
+        item
+          BeginGroup = True
+          Visible = True
+          ItemName = 'btn_CloseModul'
+        end>
+      NotDocking = [dsNone, dsLeft, dsTop, dsRight, dsBottom]
+      OneOnRow = True
+      Row = 0
+      ShowMark = False
+      SizeGrip = False
+      UseOwnFont = False
+      UseRecentItems = False
+      UseRestSpace = True
+      Visible = True
+      WholeRow = False
+    end
+    object brstc_OpenModule: TdxBarStatic
+      Caption = 'Bitte Modul w'#228'hlen'
+      Category = 0
+      Hint = 'Bitte Modul w'#228'hlen'
+      Visible = ivAlways
+      Width = 573
+    end
+    object btn_Modulleiste: TdxBarLargeButton
+      Caption = 'Modulliste verstecken'
+      Category = 0
+      Hint = 'Modulliste verstecken'
+      Visible = ivAlways
+      AutoGrayScale = False
+      GlyphLayout = glLeft
+      Width = 185
+      SyncImageIndex = False
+      ImageIndex = -1
+    end
+    object btn_RefreshRights: TdxBarLargeButton
+      Category = 0
+      Hint = 'Rechte und Modul neu laden'
+      Visible = ivAlways
+      AutoGrayScale = False
+      GlyphLayout = glLeft
+      LargeImageIndex = 3
+      Width = 25
+    end
+    object btn_CloseModul: TdxBarLargeButton
+      Category = 0
+      Hint = 'Modul schlie'#223'en'
+      Visible = ivAlways
+      AutoGrayScale = False
+      GlyphLayout = glLeft
+      LargeImageIndex = 1
+      Width = 25
+      SyncImageIndex = False
+      ImageIndex = 57
+    end
+    object brstc_User: TdxBarStatic
+      Caption = 'User'
+      Category = 0
+      Hint = 'User'
+      Visible = ivAlways
+      Width = 150
     end
   end
 end

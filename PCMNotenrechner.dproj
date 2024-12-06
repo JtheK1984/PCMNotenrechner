@@ -73,7 +73,7 @@
         <VerInfo_MinorVer>6</VerInfo_MinorVer>
         <VerInfo_Build>1</VerInfo_Build>
         <DCC_OutputDRCFile>true</DCC_OutputDRCFile>
-        <DCC_UnitSearchPath>PCM-Functions;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
+        <DCC_UnitSearchPath>PCM-Functions;PCM-Functions\WebView2;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
         <DCC_DynamicBase>false</DCC_DynamicBase>
         <DCC_HighEntropyVa>false</DCC_HighEntropyVa>
         <DCC_NXCompat>false</DCC_NXCompat>
@@ -154,9 +154,6 @@
         </DCCReference>
         <DCCReference Include="Modules\PCM.Notenrechner.Notentyp.pas">
             <Form>frm_Notenrechner_Notentyp</Form>
-        </DCCReference>
-        <DCCReference Include="Modules\PCMNotenrechner.Modul.B_Config.pas">
-            <Form>frm_Config</Form>
         </DCCReference>
         <DCCReference Include="Modules\PCMNotenrechner.Modul.C_Noten.pas">
             <Form>frm_Noten</Form>
