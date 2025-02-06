@@ -8,29 +8,13 @@ uses
   cxDataStorage, cxEdit, DB, cxDBData, cxGridLevel, cxClasses, cxControls,
   cxGridCustomView, cxGridCustomTableView, cxGridTableView,
   cxGridDBTableView, cxGrid, cxLookAndFeels,
-  cxLookAndFeelPainters, ComCtrls, ToolWin, dxSkinsCore, dxSkinBlack,
-  dxSkinBlue, dxSkinBlueprint, dxSkinCaramel, dxSkinCoffee, dxSkinDarkRoom,
-  dxSkinDarkSide, dxSkinDevExpressDarkStyle, dxSkinDevExpressStyle, dxSkinFoggy,
-  dxSkinGlassOceans, dxSkinHighContrast, dxSkiniMaginary, dxSkinLilian,
-  dxSkinLiquidSky, dxSkinLondonLiquidSky, dxSkinMcSkin, dxSkinMoneyTwins,
-  dxSkinOffice2007Black, dxSkinOffice2007Blue, dxSkinOffice2007Green,
-  dxSkinOffice2007Pink, dxSkinOffice2007Silver, dxSkinOffice2010Black,
-  dxSkinOffice2010Blue, dxSkinOffice2010Silver, dxSkinOffice2013White,
-  dxSkinPumpkin, dxSkinSeven, dxSkinSevenClassic, dxSkinSharp, dxSkinSharpPlus,
-  dxSkinSilver, dxSkinSpringTime, dxSkinStardust, dxSkinSummer2008,
-  dxSkinTheAsphaltWorld, dxSkinsDefaultPainters, dxSkinValentine, dxSkinVS2010,
-  dxSkinWhiteprint, dxSkinXmas2008Blue, dxSkinscxPCPainter, cxNavigator, dxCore,
+  cxLookAndFeelPainters, ComCtrls, ToolWin, cxNavigator, dxCore,
   cxCheckBox, cxCheckComboBox, dxDateRanges,
-  dxScrollbarAnnotations, dxSkinMetropolisDark, cxContainer, dxSkinBasic,
-  dxSkinMetropolis, dxSkinOffice2013DarkGray, dxSkinOffice2013LightGray,
-  dxSkinOffice2016Colorful, dxSkinOffice2016Dark, dxSkinOffice2019Black,
-  dxSkinOffice2019Colorful, dxSkinOffice2019DarkGray, dxSkinOffice2019White,
-  dxSkinTheBezier, dxSkinVisualStudio2013Blue, dxSkinVisualStudio2013Dark,
-  dxSkinVisualStudio2013Light, cxGroupBox, Vcl.Menus, Vcl.StdCtrls, cxButtons,
+  cxGroupBox, Vcl.Menus, Vcl.StdCtrls, cxButtons,
   FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Param,
   FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf, FireDAC.DApt.Intf,
   FireDAC.Stan.Async, FireDAC.DApt, FireDAC.Comp.DataSet, FireDAC.Comp.Client,
-  dxBar, dxSkinWXI;
+  dxBar, cxContainer, dxScrollbarAnnotations;
 
 type
   Tfrm_Notenrechner_Schulfach = class(TForm)

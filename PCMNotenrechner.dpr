@@ -4,6 +4,7 @@ uses
   inifiles,
   NtTranslator,
   System.SysUtils,
+  PCm.Helper,
   uWvLoader,
   Vcl.Forms,
   Vcl.Themes,
@@ -13,9 +14,16 @@ uses
   PCM.Data in 'PCM.Data.pas' {dm_PCM: TDataModule},
   PCM.Notenrechner.Schulfach in 'Modules\PCM.Notenrechner.Schulfach.pas' {frm_Notenrechner_Schulfach},
   PCM.Notenrechner.Notentyp in 'Modules\PCM.Notenrechner.Notentyp.pas' {frm_Notenrechner_Notentyp},
-  PCMNotenrechner.Modul.C_Noten in 'Modules\PCMNotenrechner.Modul.C_Noten.pas' {frm_Noten};
+  PCMNotenrechner.Modul.C_Noten in 'Modules\PCMNotenrechner.Modul.C_Noten.pas' {frm_Noten},
+  PCM.splash in 'PCM.splash.pas' {SplashScreen};
 
 {$R *.res}
+
+{$IFDEF WIN64}
+  {$R 'Versioninfo64.res'}
+{$else}
+  {$R 'Versioninfo32.res'}
+{$ENDIF}
 
 {$SetPEOptFlags IMAGE_DLLCHARACTERISTICS_TERMINAL_SERVER_AWARE}
 {$SetPEFlags IMAGE_FILE_REMOVABLE_RUN_FROM_SWAP or IMAGE_FILE_NET_RUN_FROM_SWAP or IMAGE_FILE_LARGE_ADDRESS_AWARE}
@@ -26,6 +34,7 @@ var
   slocale: String;
 
 begin
+  Checkinis;
   ifini:=TIniFile.create(GetEnvironmentVariable('LOCALAPPDATA') + '\PCM\PCM.ini');
   sStyle:=ifini.ReadString('PCMNotenrechner','Style','Windows');
   slocale:=ifini.ReadString('PCMBackup','Language','de');

@@ -21,6 +21,8 @@ object frm_Notenrechner_Notentyp: Tfrm_Notenrechner_Notentyp
     PanelStyle.Active = True
     Style.BorderStyle = ebsNone
     TabOrder = 0
+    ExplicitTop = 58
+    ExplicitHeight = 188
     Height = 183
     Width = 631
     object cxGrid3: TcxGrid
@@ -40,6 +42,10 @@ object frm_Notenrechner_Notentyp: Tfrm_Notenrechner_Notentyp
       ParentFont = False
       TabOrder = 0
       LockedStateImageOptions.Effect = lsieDark
+      ExplicitLeft = 2
+      ExplicitTop = 2
+      ExplicitWidth = 627
+      ExplicitHeight = 184
       object tvData: TcxGridDBTableView
         Navigator.Buttons.CustomButtons = <>
         FilterBox.CustomizeDialog = False

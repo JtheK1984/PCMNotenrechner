@@ -1,59 +1,44 @@
-unit PCM.Main;
+﻿unit PCM.Main;
 
 interface
 
 uses
   {$Region Uses}
-  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs,
-  cxPCdxBarPopupMenu, cxGraphics, cxControls, cxLookAndFeels, cxLookAndFeelPainters, cxStyles, cxCustomData,
-  cxFilter, cxData, cxDataStorage, cxEdit, Data.DB, cxDBData, Vcl.ComCtrls,
-  Vcl.ToolWin, cxGridLevel, cxGridCustomTableView, cxGridTableView,
-  cxGridDBTableView, cxGridCustomView, cxGrid, cxClasses, cxPC, Vcl.ImgList,
-  Vcl.StdCtrls, Vcl.Menus, Data.FMTBcd, Data.SqlExpr,
-  Data.DBXMySQL,Datasnap.DBClient, Datasnap.Provider,
-  Vcl.DBCtrls, Vcl.Mask, dxGDIPlusClasses, Vcl.ExtCtrls,
-  cxProgressBar, Vcl.Buttons, cxContainer, cxDBProgressBar,
-  cxTextEdit, cxMaskEdit, cxDropDownEdit, cxLookupEdit, cxDBLookupEdit,
-  cxDBLookupComboBox,  cxNavigator, NTTranslator,
-  dxNavBarBase, dxNavBarCollns, dxNavBar,inifiles,  vcl.Themes,
-  dxBarBuiltInMenu,registry, cxMemo, cxRichEdit, Strutils,
-  cxDBRichEdit, cxDBEdit, cxCheckBox, dxDateRanges, dxScrollbarAnnotations, System.ImageList, FireDAC.Stan.Intf,
-  FireDAC.Stan.Option, FireDAC.Stan.Error, FireDAC.UI.Intf, FireDAC.Phys.Intf,
-  FireDAC.Stan.Def, FireDAC.Stan.Pool, FireDAC.Stan.Async, FireDAC.Phys,
-  FireDAC.Phys.MySQL, FireDAC.Phys.MySQLDef, FireDAC.VCLUI.Wait,
-  FireDAC.Stan.Param, FireDAC.DatS, FireDAC.DApt.Intf, FireDAC.DApt,
-  FireDAC.Comp.DataSet, FireDAC.Comp.Client, cxLabel, cxCalendar, cxScrollBox,
-  cxGridCustomPopupMenu, cxGridPopupMenu, cxLocalization,system.UITypes,
-  dxSkinsCore, dxSkinMetropolisDark, cxButtons, dxStatusBar, dxSkinBasic,
-  dxSkinBlack, dxSkinBlue, dxSkinBlueprint, dxSkinCaramel, dxSkinCoffee,
-  dxSkinDarkroom, dxSkinDarkSide, dxSkinDevExpressDarkStyle,
-  dxSkinDevExpressStyle, dxSkinFoggy, dxSkinGlassOceans, dxSkinHighContrast,
-  dxSkiniMaginary, dxSkinLilian, dxSkinLiquidSky, dxSkinLondonLiquidSky,
-  dxSkinMcSkin, dxSkinMetropolis, dxSkinMoneyTwins, dxSkinOffice2007Black,
-  dxSkinOffice2007Blue, dxSkinOffice2007Green, dxSkinOffice2007Pink,
-  dxSkinOffice2007Silver, dxSkinOffice2010Black, dxSkinOffice2010Blue,
-  dxSkinOffice2010Silver, dxSkinOffice2013DarkGray, dxSkinOffice2013LightGray,
-  dxSkinOffice2013White, dxSkinOffice2016Colorful, dxSkinOffice2016Dark,
-  dxSkinOffice2019Black, dxSkinOffice2019Colorful, dxSkinOffice2019DarkGray,
-  dxSkinOffice2019White, dxSkinPumpkin, dxSkinSeven, dxSkinSevenClassic,
-  dxSkinSharp, dxSkinSharpPlus, dxSkinSilver, dxSkinSpringtime, dxSkinStardust,
-  dxSkinSummer2008, dxSkinTheAsphaltWorld, dxSkinTheBezier,
-  dxSkinsDefaultPainters, dxSkinValentine, dxSkinVisualStudio2013Blue,
-  dxSkinVisualStudio2013Dark, dxSkinVisualStudio2013Light, dxSkinVS2010,
-  dxSkinWhiteprint, dxSkinXmas2008Blue, cxGroupBox, cxRadioGroup, cxImage,
-  cxImageList, dxBar, cxGeometry,
-  cxVariants, dxCustomData, cxCustomCanvas, dxCoreGraphics, dxChartCore,
-  dxChartData, dxChartLegend, dxChartSimpleDiagram, dxChartXYDiagram,
-  dxChartXYSeriesLineView, dxChartXYSeriesAreaView, dxChartMarkers,
-  dxChartXYSeriesBarView, dxChartDBData, cxSplitter, dxCoreClasses,
-  dxChartControl, dxSkinWXI, dxBarExtItems;
+  {$IFDEF WIN64}
+    {$I Skins.inc}
+    dxSkinsForm, dxSkinsdxBarPainter, dxSkinscxPCPainter,
+  {$ELSE}
+    {$I Skins.inc}
+    dxSkinsForm, dxSkinsdxBarPainter, dxSkinscxPCPainter,
+  {$ENDIF}
+  SYSTEM.uitypes, Winapi.Windows, Winapi.Messages, System.SysUtils,
+  System.Variants, System.Classes, Vcl.Graphics, Vcl.Controls, Vcl.Forms, Vcl.Dialogs,
+  Vcl.ImgList, Vcl.Menus, NTTranslator, Strutils, DateUtils,shellapi, Vcl.Themes,
+  FireDAC.Phys.ADSDef, FireDAC.Phys.MSSQLDef, FireDAC.Stan.Param,
+  FireDAC.Phys.ODBCBase, FireDAC.Phys.MSSQL, FireDAC.Phys.ADS,
+  VclTee.TeeGDIPlus, VCLTee.TeEngine, VCLTee.Series, VCLTee.TeeProcs,
+  VCLTee.Chart, VCLTee.DBChart, cxGeometry, cxVariants, dxCustomData,
+  cxCustomCanvas, dxCoreGraphics, dxChartCore, dxChartData, dxChartLegend,
+  dxChartSimpleDiagram, dxChartXYDiagram, dxChartXYSeriesLineView,
+  dxChartXYSeriesAreaView, dxChartMarkers, dxChartXYSeriesBarView,
+  dxChartDBData, dxCoreClasses, dxChartControl, VCLTee.TeeDBCrossTab,
+  cxGridChartView, cxPivotGridChartConnection, cxCustomPivotGrid, cxDBPivotGrid,
+  dxBarExtItems, cxBarEditItem,
+  cxSplitter, cxGraphics, cxControls, cxLookAndFeels, cxLookAndFeelPainters,
+  cxEdit, cxClasses, System.ImageList, cxContainer, dxBarBuiltInMenu,
+  Vcl.ExtCtrls, cxPC, dxNavBarCollns, dxNavBarBase, dxNavBar,
+  dxBar, cxLocalization, cxLabel, cxGroupBox, dxNavBarStyles,inifiles, cxStyles,
+  cxCustomData, cxFilter, cxData, cxDataStorage, cxNavigator, dxDateRanges,
+  dxScrollbarAnnotations, Data.DB, cxDBData, cxGridCustomTableView,
+  cxGridTableView, cxGridDBTableView, cxGridLevel, cxGridCustomView, cxGrid;
   {$EndRegion Uses}
 type
   {$Region Type}
   TdxBarControlAccess = class(TdxBarControl);
   TdxBarAccess = class(TdxBar);
   TdxBarManagerAccess = class(TdxBarManager);
+
+
   TMethod = procedure of object;
   TModuleType = (mtForm, mtEvent);
   TModule = class(TCollectionItem)
@@ -79,85 +64,99 @@ type
   end;
 
   Tfrm_PCM_Main = class(TForm)
-    navbr_main: TdxNavBar;
-    nb_Optionen: TdxNavBarGroup;
-    nb_Noten: TdxNavBarGroup;
-    nb_Programm: TdxNavBarGroup;
-    nbi_User: TdxNavBarItem;
-    nbi_Noten: TdxNavBarItem;
-    nbi_Systeminfo: TdxNavBarItem;
-    nb_Programminfo: TdxNavBarItem;
-    nbi_Beenden: TdxNavBarItem;
-    navbr_mainGroup1: TdxNavBarGroup;
-    nb_Passwortchange: TdxNavBarItem;
-    nb_Abmelden: TdxNavBarItem;
-    loc_Lang: TcxLocalizer;
-    lafCtrl_Main: TcxLookAndFeelController;
-    navbr_mainItem1: TdxNavBarItem;
-    pnl_MainRight: TcxGroupBox;
-    pc_main: TcxPageControl;
-    trayic_main: TTrayIcon;
-    ppm_Main: TPopupMenu;
-    ppmbtn_Konfiguration: TMenuItem;
-    ppmbtn_Trenn1: TMenuItem;
-    ppmbtn_Contacts: TMenuItem;
-    ppmbtn_Trenn2: TMenuItem;
-    ppmbtn_Systeminfo: TMenuItem;
-    ppmbtn_Programminfo: TMenuItem;
-    ppmbtn_Trenn6: TMenuItem;
-    ppmbtn_Beenden: TMenuItem;
-    ts_B_Cal_TodoChart: TcxTabSheet;
-    pnl_DashboardContacts: TcxGroupBox;
-    pnl_Contactmiddle: TcxGroupBox;
-    chartctrl_Contact: TdxChartControl;
-    chartctrl_ContactChart: TdxChartSimpleDiagram;
-    chartctrl_ContactSeries: TdxChartSimpleSeries;
-    pnl_Contactright: TcxGroupBox;
-    chartctrl_Adresses: TdxChartControl;
-    chartctrl_AdressesChart: TdxChartSimpleDiagram;
-    chartctrl_AdressesSeries: TdxChartSimpleSeries;
-    spl_ChartContactsLeft: TcxSplitter;
-    pnl_ContactTop: TcxGroupBox;
-    chartctrl_Birthday: TdxChartControl;
-    chartctrl_BirthdayChart: TdxChartSimpleDiagram;
-    chartctrl_BirthdaySeries: TdxChartSimpleSeries;
-    spl_ChartContactsMain: TcxSplitter;
     brmgr_main: TdxBarManager;
-    tb_Main: TdxBar;
     brstc_OpenModule: TdxBarStatic;
+    brstc_User: TdxBarStatic;
+    btn_CloseModul: TdxBarLargeButton;
     btn_Modulleiste: TdxBarLargeButton;
     btn_RefreshRights: TdxBarLargeButton;
-    btn_CloseModul: TdxBarLargeButton;
-    brstc_User: TdxBarStatic;
+    grpbx_Design: TcxGroupBox;
+    iAbmelden: TdxNavBarItem;
+    iNotenuebersicht: TdxNavBarItem;
+    iBeenden: TdxNavBarItem;
+    iBenutzerverwaltung: TdxNavBarItem;
+    iDesign: TdxNavBarItem;
+    iHandbuch: TdxNavBarItem;
+    iInfo: TdxNavBarItem;
+    img_Icons: TImageList;
+    iSprache: TdxNavBarItem;
+    iSysteminfo: TdxNavBarItem;
+    lafCtrl_Main: TcxLookAndFeelController;
+    loc_Lang: TcxLocalizer;
+    navbr_main: TdxNavBar;
+    navbrgrp_Info: TdxNavBarGroup;
+    navbrgrp_Optionen: TdxNavBarGroup;
+    navbrgrp_Programm: TdxNavBarGroup;
+    navbrit_ChangePW: TdxNavBarItem;
+    navbrStyleIt_main: TdxNavBarStyleItem;
+    nb_Notenverwaltung: TdxNavBarGroup;
+    ppm_Main: TPopupMenu;
+    ppmbtn_Abmelden: TMenuItem;
+    ppmbtn_Beenden: TMenuItem;
+    ppmbtn_Benutzer: TMenuItem;
+    ppmbtn_Handbuch: TMenuItem;
+    ppmbtn_Info: TMenuItem;
+    ppmbtn_Konfiguration: TMenuItem;
+    ppmbtn_Music: TMenuItem;
+    ppmbtn_Sprache: TMenuItem;
+    ppmbtn_Systeminfo: TMenuItem;
+    ppmbtn_Trenn1: TMenuItem;
+    ppmbtn_Trenn2: TMenuItem;
+    ppmbtn_Trenn6: TMenuItem;
+    tb_Main: TdxBar;
+    trayic_Main: TTrayIcon;
+    pc_main: TcxPageControl;
+    ts_Dashboard: TcxTabSheet;
+    pnl_DashboardContacts: TcxGroupBox;
+    pnl_Contactmiddle: TcxGroupBox;
+    dxChartControl1: TdxChartControl;
+    dxChartSimpleDiagram1: TdxChartSimpleDiagram;
+    dxChartSimpleSeries1: TdxChartSimpleSeries;
+    pnl_ContactRight: TcxGroupBox;
+    dxChartControl2: TdxChartControl;
+    dxChartSimpleDiagram2: TdxChartSimpleDiagram;
+    dxChartSimpleSeries2: TdxChartSimpleSeries;
+    cxSplitter1: TcxSplitter;
+    pnl_ContactTop: TcxGroupBox;
+    dxChartControl3: TdxChartControl;
+    dxChartSimpleDiagram3: TdxChartSimpleDiagram;
+    dxChartSimpleSeries3: TdxChartSimpleSeries;
+    cxSplitter2: TcxSplitter;
     procedure btn_CloseModulClick(Sender: TObject);
     procedure btn_ModulleisteClick(Sender: TObject);
     procedure btn_RefreshRightsClick(Sender: TObject);
-    procedure pc_mainPageChanging(Sender: TObject; NewPage: TcxTabSheet; var AllowChange: Boolean);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure FormCreate(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
+    procedure FormHide(Sender: TObject);
+    procedure FormKeyPress(Sender: TObject; var Key: Char);
+    procedure FormKeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure FormResize(Sender: TObject);
+    procedure FormShow(Sender: TObject);
     procedure iSpracheClick(Sender: TObject);
     procedure NavBarClick(Sender: TObject);
-    procedure FormShow(Sender: TObject);
-    procedure nbi_BeendenClick(Sender: TObject);
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
-    procedure FormDeactivate(Sender: TObject);
-    procedure FormDestroy(Sender: TObject);
-    procedure ppmbtn_KonfigurationClick(Sender: TObject);
-    procedure ppmbtn_ContactsClick(Sender: TObject);
-    procedure ppmbtn_SysteminfoClick(Sender: TObject);
-    procedure ppmbtn_ProgramminfoClick(Sender: TObject);
+    procedure pc_mainPageChanging(Sender: TObject; NewPage: TcxTabSheet; var AllowChange: Boolean);
+    procedure ppmbtn_AbmeldenClick(Sender: TObject);
     procedure ppmbtn_BeendenClick(Sender: TObject);
-    procedure FormResize(Sender: TObject);
+    procedure ppmbtn_BenutzerClick(Sender: TObject);
+    procedure ppmbtn_HandbuchClick(Sender: TObject);
+    procedure ppmbtn_InfoClick(Sender: TObject);
+    procedure ppmbtn_MusicClick(Sender: TObject);
+    procedure ppmbtn_SpracheClick(Sender: TObject);
+    procedure ppmbtn_SysteminfoClick(Sender: TObject);
   private
+    { Private-Deklarationen }
+
+  public
+    { Public-Deklarationen }
+    bStyle: boolean;
+    bAbmelden: Boolean;
     Modules: TCollection;
     function CurrentModule: TForm;
     procedure Abmelden;
     procedure CloseModules;
-
-    { Private-Deklarationen }
-  public
-    { Public-Deklarationen }
-    bAbmelden: Boolean;
-    bol_Close: boolean;
     procedure LoadData;
+    procedure RegisterNavBarItems;
   end;
   {$EndRegion Type}
 var
@@ -179,10 +178,9 @@ uses  PCM.Benutzerverwaltung,
       PCM.Functions.Synch.Wait,
       PCM.Handbuch,
       PCM.Helper,
-      PCMNotenrechner.Modul.B_Config,
       PCMNotenrechner.Modul.C_Noten,
       PCM.SQL,
-			PCM.Strings;
+			PCM.Strings, PCM.splash;
 
 ////////////////////////////////////////////////////////////////////////////////
 // Hilfsfunktionen                                                            //
@@ -223,7 +221,7 @@ procedure Tfrm_PCM_Main.CloseModules;
 var
   iPage: Integer;
 begin
-  for iPage := pc_Main.PageCount - 1 downto 0 do
+  for iPage := pc_Main.PageCount - 1 downto 1 do
   begin
     try
       TForm(pc_Main.Pages[iPage].Controls[0]).Close;
@@ -235,6 +233,11 @@ begin
 end;
 procedure Tfrm_PCM_Main.LoadData;
 begin
+  dm_PCM.qry_Work.SQL.Text:= ASSQL_GetUsername[dm_PCM.iDBType];
+  dm_PCM.qry_Work.ParamByName('ID').AsInteger:= dm_PCM.iIDBenutzerPCM;
+  dm_PCM.qry_Work.Open;
+  brstc_User.Caption:= dm_PCM.qry_Work.FieldByName('Benutzer').AsString;
+  dm_PCM.qry_Work.Close;
   if dm_PCM.qry_ChartNotenFach.Active then
   begin
     dm_PCM.qry_ChartNotenFach.Refresh
@@ -263,6 +266,49 @@ begin
     dm_PCM.qry_ChartNoten.Filtered:= true;
   end;
 end;
+procedure Tfrm_PCM_Main.RegisterNavBarItems;
+  procedure RegisterForm(SideBarItemName: string; FormClass: TFormClass; Instance: Pointer; Right: Integer);
+  var
+    NewModule: TModule;
+    Item: TdxNavBarItem;
+  begin
+    Item := navbr_main.Items.Items[navbr_main.Items.ItemByName(SideBarItemName).index];
+    if Assigned(Item) then
+    begin
+      NewModule := TModule(Modules.Add);
+      Item.Tag := NewModule.ID;
+      NewModule.FormClass := FormClass;
+      NewModule.Instance := Instance;
+      NewModule.Right := Right;
+      NewModule.ModuleName := SideBarItemName;
+      NewModule.ImageIndex := Item.SmallImageIndex;
+    end;
+  end;
+  procedure RegisterEvent(SideBarItemName: string; Event: TMethod);
+  var
+    NewModule: TModule;
+    Item: TdxNavBarItem;
+  begin
+    Item := navbr_main.Items.Items[navbr_main.Items.ItemByName(SideBarItemName).index];
+    if Assigned(Item) then
+    begin
+      NewModule := TModule(Modules.Add);
+      Item.Tag := NewModule.ID;
+      NewModule.Event := Event;
+      NewModule.ModuleName := SideBarItemName;
+    end
+  end;
+begin
+  Modules.Clear;
+  RegisterForm('iBenutzerverwaltung', Tfrm_User, @frm_User, 1);
+  RegisterForm('iDesign', Tfrm_Design, @frm_Design, 1);
+  RegisterForm('iNotenuebersicht', Tfrm_Noten, @frm_Noten,1);
+  RegisterForm('iSysteminfo',Tfrm_PCM_System, @frm_PCM_System, 1);
+  RegisterForm('iInfo',Tfrm_PCM_InfoApp, @frm_PCM_InfoApp, 1);
+  RegisterForm('iHandbuch',Tfrm_Handbuch,@frm_Handbuch, 1);
+  RegisterEvent('iAbmelden', Abmelden);
+  RegisterEvent('iBeenden', Close);
+end;
 {$EndRegion Helperfunctions}
 ////////////////////////////////////////////////////////////////////////////////
 // Toolbar                                                                    //
@@ -270,15 +316,16 @@ end;
 {$Region Toolbar}
 procedure Tfrm_PCM_Main.btn_CloseModulClick(Sender: TObject);
 begin
-  if pc_Main.PageCount > 0 then
+  if pc_Main.PageCount > 1 then
   begin
-    if pc_Main.PageCount > 1 then
+    if pc_Main.PageCount = 2 then
+      brstc_OpenModule.Caption := 'Dashboard';
+    if pc_Main.ActivePage <> ts_Dashboard  then
     begin
-      brstc_OpenModule.Caption:= 'Bitte Modul w�hlen'
+      TForm(pc_Main.ActivePage.Controls[0]).Close;
+      TForm(pc_Main.ActivePage.Controls[0]).Free;
+      pc_Main.ActivePage.Free;
     end;
-    TForm(pc_Main.ActivePage.Controls[0]).Close;
-    TForm(pc_Main.ActivePage.Controls[0]).Free;
-    pc_Main.ActivePage.Free;
   end;
 end;
 procedure Tfrm_PCM_Main.btn_ModulleisteClick(Sender: TObject);
@@ -296,7 +343,7 @@ var
 begin
   btn_RefreshRights.Enabled := False;
   try
-    if pc_Main.PageCount > 0 then
+    if pc_Main.PageCount > 1 then
     begin
       Module := TModule(Modules.FindItemID(pc_Main.ActivePage.Tag));
       if Module.Typ = mtForm then
@@ -385,7 +432,7 @@ begin
       begin
         sModul:= Module.ModuleName;
         sModulCaption:= Module.ModuleName;
-        case AnsiIndexStr(sModul, ['iBenutzerverwaltung','iDesign','iAudioplayer','iWebradio','iVideoplayer','iFotos','iSysteminfo','iInfo','iHandbuch']) of
+        case AnsiIndexStr(sModul, ['iBenutzerverwaltung','iKonfiguration','iNotenuebersicht','iWebradio','iVideoplayer','iFotos','iSysteminfo','iInfo','iHandbuch']) of
 
         0:
           begin
@@ -399,8 +446,8 @@ begin
           end;
         2:
           begin
-            sModul:= 'Mediacenter';
-            sModulCaption := 'i'  + rs_PCMMediacenter_Musikplayer;
+            sModul:= 'Notenübersicht';
+            sModulCaption := 'i'  + 'Notenübersicht';
             dm_PCM.iModulTab:= 1;
           end;
 
@@ -456,7 +503,7 @@ begin
         begin
           Screen.Cursor := crHourglass;
           try
-            ShowWaitForm(TForm(Self), PWideChar('Formular wird geladen'), 1,ClientWidth, Height);
+            ShowWaitForm(TForm(Self), PWideChar('Formular wird geladen'), 1,417, 65);
             Application.ProcessMessages;
             WaitFormStep;
             TForm(Module.Instance^) := Module.FormClass.Create(Nil);
@@ -490,88 +537,175 @@ begin
   end;
 end;
 {$EndRegion Navbar}
-
-
-
-
-
+////////////////////////////////////////////////////////////////////////////////
+// Formfunktionen                                                             //
+////////////////////////////////////////////////////////////////////////////////
+{$Region Formfunktionen}
 procedure Tfrm_PCM_Main.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
+  CloseModules;
   WriteLog(PCM_Logname,rs_PCM_Beenden,0);
-  bol_Close:= true
 end;
-procedure Tfrm_PCM_Main.FormDeactivate(Sender: TObject);
+procedure Tfrm_PCM_Main.FormCreate(Sender: TObject);
 begin
-  bol_Close:= true
+  Modules := TCollection.Create(TModule);
 end;
 procedure Tfrm_PCM_Main.FormDestroy(Sender: TObject);
 begin
-  bol_Close:= true
+  Modules.Free;
+end;
+procedure Tfrm_PCM_Main.FormHide(Sender: TObject);
+begin
+  CloseModules;
+end;
+procedure Tfrm_PCM_Main.FormKeyPress(Sender: TObject; var Key: Char);
+var
+  m: TForm;
+begin
+  m := CurrentModule;
+  if m <> nil then
+    if not m.Focused then
+      if Assigned(m.OnKeyPress) then
+        m.OnKeyPress(Sender, Key);
+end;
+procedure Tfrm_PCM_Main.FormKeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
+var
+  m: TForm;
+begin
+  m := CurrentModule;
+  if m <> nil then
+    if not m.Focused then
+      if Assigned(m.OnKeyUp) then
+        m.OnKeyUp(Sender, Key, Shift);
 end;
 procedure Tfrm_PCM_Main.FormResize(Sender: TObject);
+  procedure BarResize;
+  var
+    rRect: TRect;
+    iTemp, iUsedSpace: Integer;
+    BarControl: TdxBarControlAccess;
+  begin
+    if (brmgr_main.Bars[0] <> nil) and (brmgr_main.Bars[0].Control <> nil) then
+    begin
+      BarControl := TdxBarControlAccess(brmgr_main.Bars[0].Control);
+
+      iUsedSpace := 0;
+
+      brstc_OpenModule.Width := 0;
+
+      for iTemp := 0 to BarControl.Bar.ItemLinks.Count - 1 do
+      begin
+        if BarControl.Bar.ItemLinks.Items[iTemp].Item = btn_Modulleiste then
+        begin
+          Inc(iUsedSpace, 0);
+        end
+        else
+        begin
+          if BarControl.Bar.ItemLinks.Items[iTemp].Item <> brstc_OpenModule then
+          begin
+            Inc(iUsedSpace, BarControl.Bar.ItemLinks.Items[iTemp].ItemRect.Width);
+          end;
+        end;
+      end;
+
+      if BarControl.MarkExists then
+      begin
+        rRect := BarControl.MarkRect;
+        Inc(iUsedSpace, rRect.Right - rRect.Left);
+      end;
+       brmgr_main.BeginUpdate;
+      Try
+        brstc_OpenModule.Width := (brmgr_main.Bars[0].Control as TdxBarControl).Width -  iUsedSpace - btn_Modulleiste.Width  - 45;
+      Finally
+        brmgr_main.EndUpdate();
+      End;
+    end;
+  end;
 begin
-  pnl_ContactTop.Height:= Trunc(ts_B_Cal_TodoChart.Height/2);
-  pnl_Contactmiddle.Height:= Trunc(ts_B_Cal_TodoChart.Height/2);
-  pnl_Contactright.Height:= Trunc(ts_B_Cal_TodoChart.Height/2);
-  pnl_Contactmiddle.Width:= Trunc(ts_B_Cal_TodoChart.Width/2);
-  pnl_ContactRight.Width:= Trunc(ts_B_Cal_TodoChart.Width/2);
+  BarResize;
+  pnl_ContactTop.Height:= Trunc(ts_Dashboard.Height/2);
+  pnl_Contactmiddle.Height:= Trunc(ts_Dashboard.Height/2);
+  pnl_Contactright.Height:= Trunc(ts_Dashboard.Height/2);
+  pnl_Contactmiddle.Width:= Trunc(ts_Dashboard.Width/2);
+  pnl_ContactRight.Width:= Trunc(ts_Dashboard.Width/2);
 end;
 procedure Tfrm_PCM_Main.FormShow(Sender: TObject);
-  procedure InitializeRights;
+begin
+  {$ifdef WIn32}
+  iSprache.Visible:= true;
+  ppmbtn_Sprache.Visible:= true;
+  {$endif}
+  lafCtrl_Main.NativeStyle:= false;
+  trayIC_Main.Hint:= PCM_Programmname;
+  dm_PCM.iDBType:= 0;
+  if not ReadServerAdress then
   begin
-    dm_PCM.qry_work.SQL.Text:= 'SELECT vr.ID,vr.Benutzer,vr.nr_Noten,vr.Alle_Benutzer FROM benutzer vb '+
-                               'LEFT OUTER JOIN rechte vr ON vr.ID = vb.ID_rechte ' +
-                               'WHERE vb.id =  :ID';
-    dm_PCM.qry_work.ParamByName('ID').AsInteger := dm_PCM.iIDBenutzerPCM;
-    dm_PCM.qry_work.Open;
-    dm_PCM.int_NotenRight:= dm_PCM.qry_work.FieldByName('nr_Noten').asInteger;
-    dm_PCM.bAlleBenutzer:= dm_PCM.qry_work.FieldByName('alle_benutzer').AsBoolean;
-    dm_PCM.qry_work.Close;
+    Application.Terminate;
+  end
+  else begin
+  	lafCtrl_Main.SkinName:= dm_PCM.sDesign;
+    SplashScreen := TSplashScreen.Create(nil);
+    SplashScreen.Update;
+    SplashScreen.Execute(dm_PCM.bStyle);
+    if dm_PCM.bStyle then
+    begin
+      NavBarClick(iDesign);
+    end
+    else begin
+      WriteLog(PCM_Logname,rs_PCM_Start,0);
+    end;
   end;
-var
-  iIndex: integer;
-begin
-  
 end;
-
-procedure Tfrm_PCM_Main.nbi_BeendenClick(Sender: TObject);
+{$EndRegion Formfunktionen}
+////////////////////////////////////////////////////////////////////////////////
+// Traymenü                                                                   //
+////////////////////////////////////////////////////////////////////////////////
+{$Region Traymenu}
+procedure Tfrm_PCM_Main.ppmbtn_BenutzerClick(Sender: TObject);
 begin
-  bol_close:= true;
-  Application.Terminate;
+  navbarclick(iBenutzerverwaltung);
+  WindowState:= TWindowState.wsMaximized;
+  SetForegroundWindow(frm_PCM_main.Handle);
+end;
+procedure Tfrm_PCM_Main.ppmbtn_MusicClick(Sender: TObject);
+begin
+  navbarclick(iNotenuebersicht);
+  WindowState:= TWindowState.wsMaximized;
+  SetForegroundWindow(frm_PCM_main.Handle);
+end;
+procedure Tfrm_PCM_Main.ppmbtn_SysteminfoClick(Sender: TObject);
+begin
+  navbarclick(iSysteminfo);
+  WindowState:= TWindowState.wsMaximized;
+  SetForegroundWindow(frm_PCM_main.Handle);
+end;
+procedure Tfrm_PCM_Main.ppmbtn_InfoClick(Sender: TObject);
+begin
+  navbarclick(iInfo);
+  WindowState:= TWindowState.wsMaximized;
+  SetForegroundWindow(frm_PCM_main.Handle);
+end;
+procedure Tfrm_PCM_Main.ppmbtn_HandbuchClick(Sender: TObject);
+begin
+  navbarclick(iHandbuch);
+  WindowState:= TWindowState.wsMaximized;
+  SetForegroundWindow(frm_PCM_main.Handle);
+end;
+procedure Tfrm_PCM_Main.ppmbtn_SpracheClick(Sender: TObject);
+begin
+  navbarclick(iSprache);
+  WindowState:= TWindowState.wsMaximized;
+  SetForegroundWindow(frm_PCM_main.Handle);
+end;
+procedure Tfrm_PCM_Main.ppmbtn_AbmeldenClick(Sender: TObject);
+begin
+  Abmelden
 end;
 procedure Tfrm_PCM_Main.ppmbtn_BeendenClick(Sender: TObject);
 begin
-//  nbi_BeendenClick(SELF);
-  WindowState:= TWindowState.wsMaximized;
-  SetForegroundWindow(frm_PCM_main.Handle);
+  Close;
 end;
-
-procedure Tfrm_PCM_Main.ppmbtn_ContactsClick(Sender: TObject);
-begin
-//  nbi_NotenClick(SELF);
-  WindowState:= TWindowState.wsMaximized;
-  SetForegroundWindow(frm_PCM_main.Handle);
-end;
-
-procedure Tfrm_PCM_Main.ppmbtn_KonfigurationClick(Sender: TObject);
-begin
-//  nb_mainItem1Click(SELF);
-  WindowState:= TWindowState.wsMaximized;
-  SetForegroundWindow(frm_PCM_main.Handle);
-end;
-
-procedure Tfrm_PCM_Main.ppmbtn_ProgramminfoClick(Sender: TObject);
-begin
-//  nb_ProgramminfoClick(SELF);
-  WindowState:= TWindowState.wsMaximized;
-  SetForegroundWindow(frm_PCM_main.Handle);
-end;
-
-procedure Tfrm_PCM_Main.ppmbtn_SysteminfoClick(Sender: TObject);
-begin
-//  nbi_SysteminfoClick(SELF);
-  WindowState:= TWindowState.wsMaximized;
-  SetForegroundWindow(frm_PCM_main.Handle);
-end;
-
+{$EndRegion Traymenu}
 end.
+
+

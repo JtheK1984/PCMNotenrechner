@@ -39,7 +39,7 @@ object frm_Noten: Tfrm_Noten
       ParentColor = False
       ParentFont = False
       TabOrder = 0
-      Properties.ActivePage = ts_Noten_Detailliert
+      Properties.ActivePage = ts_Noten_Durchschnitt
       Properties.CustomButtons.Buttons = <>
       Properties.Images = dm_PCM.imglst_16x16
       Properties.Options = [pcoAlwaysShowGoDialogButton, pcoGradient, pcoGradientClientArea]
@@ -156,30 +156,35 @@ object frm_Noten: Tfrm_Noten
         ImageIndex = 79
         object cxScrollBox1: TcxScrollBox
           Left = 0
-          Top = 58
+          Top = 63
           Width = 996
-          Height = 757
+          Height = 752
           Align = alClient
           TabOrder = 0
+          ExplicitTop = 58
+          ExplicitHeight = 757
           object cxGroupBox13: TcxGroupBox
             Left = 0
-            Top = 76
+            Top = 81
             Align = alClient
             Caption = 'Noten'#252'bersicht'
             TabOrder = 1
-            Height = 679
+            ExplicitTop = 76
+            ExplicitHeight = 679
+            Height = 669
             Width = 994
             object grd_Noten_Detail: TcxGrid
               Left = 3
               Top = 15
               Width = 988
-              Height = 655
+              Height = 645
               Align = alClient
               BevelInner = bvNone
               BorderStyle = cxcbsNone
               TabOrder = 0
               TabStop = False
               LockedStateImageOptions.Effect = lsieDark
+              ExplicitHeight = 655
               object tv_Noten_Detail: TcxGridDBTableView
                 Navigator.Buttons.CustomButtons = <>
                 ScrollbarAnnotations.CustomAnnotations = <>
@@ -292,7 +297,7 @@ object frm_Noten: Tfrm_Noten
             Style.Font.Style = []
             Style.IsFontAssigned = True
             TabOrder = 0
-            Height = 76
+            Height = 81
             Width = 994
             object btn_Noten_Detailliert_NewFach: TcxButton
               Left = 273
@@ -465,7 +470,7 @@ object frm_Noten: Tfrm_Noten
           Left = 0
           Top = 0
           Width = 996
-          Height = 58
+          Height = 63
           Align = dalTop
           BarManager = dxBarManager1
         end
@@ -488,6 +493,7 @@ object frm_Noten: Tfrm_Noten
     ImageOptions.LargeImages = dm_PCM.imglst_32x32
     NotDocking = [dsNone, dsLeft, dsTop, dsRight, dsBottom]
     PopupMenuLinks = <>
+    Style = bmsUseLookAndFeel
     UseSystemFont = True
     Left = 536
     Top = 216
@@ -603,7 +609,6 @@ object frm_Noten: Tfrm_Noten
     Top = 128
   end
   object qNoten: TFDQuery
-    Active = True
     AfterOpen = SetButtonsEnableVisible
     AfterInsert = SetButtonsEnableVisible
     AfterEdit = SetButtonsEnableVisible
