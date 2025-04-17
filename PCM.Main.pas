@@ -30,7 +30,8 @@ uses
   dxBar, cxLocalization, cxLabel, cxGroupBox, dxNavBarStyles,inifiles, cxStyles,
   cxCustomData, cxFilter, cxData, cxDataStorage, cxNavigator, dxDateRanges,
   dxScrollbarAnnotations, Data.DB, cxDBData, cxGridCustomTableView,
-  cxGridTableView, cxGridDBTableView, cxGridLevel, cxGridCustomView, cxGrid;
+  cxGridTableView, cxGridDBTableView, cxGridLevel, cxGridCustomView, cxGrid,
+  dxUIAClasses, dxLayoutContainer, dxLayoutControl, dxChartPalette;
   {$EndRegion Uses}
 type
   {$Region Type}
@@ -108,20 +109,27 @@ type
     pc_main: TcxPageControl;
     ts_Dashboard: TcxTabSheet;
     pnl_DashboardContacts: TcxGroupBox;
-    pnl_Contactmiddle: TcxGroupBox;
     dxChartControl1: TdxChartControl;
     dxChartSimpleDiagram1: TdxChartSimpleDiagram;
     dxChartSimpleSeries1: TdxChartSimpleSeries;
-    pnl_ContactRight: TcxGroupBox;
     dxChartControl2: TdxChartControl;
     dxChartSimpleDiagram2: TdxChartSimpleDiagram;
     dxChartSimpleSeries2: TdxChartSimpleSeries;
-    cxSplitter1: TcxSplitter;
-    pnl_ContactTop: TcxGroupBox;
     dxChartControl3: TdxChartControl;
     dxChartSimpleDiagram3: TdxChartSimpleDiagram;
     dxChartSimpleSeries3: TdxChartSimpleSeries;
-    cxSplitter2: TcxSplitter;
+    dxLayoutControl1Group_Root: TdxLayoutGroup;
+    dxLayoutControl1: TdxLayoutControl;
+    dxLayoutGroup1: TdxLayoutGroup;
+    dxLayoutGroup2: TdxLayoutGroup;
+    dxLayoutGroup3: TdxLayoutGroup;
+    dxLayoutGroup4: TdxLayoutGroup;
+    dxLayoutGroup5: TdxLayoutGroup;
+    dxLayoutItem1: TdxLayoutItem;
+    dxLayoutItem2: TdxLayoutItem;
+    dxLayoutItem3: TdxLayoutItem;
+    dxLayoutSplitterItem1: TdxLayoutSplitterItem;
+    dxLayoutSplitterItem2: TdxLayoutSplitterItem;
     procedure btn_CloseModulClick(Sender: TObject);
     procedure btn_ModulleisteClick(Sender: TObject);
     procedure btn_RefreshRightsClick(Sender: TObject);
@@ -623,11 +631,6 @@ procedure Tfrm_PCM_Main.FormResize(Sender: TObject);
   end;
 begin
   BarResize;
-  pnl_ContactTop.Height:= Trunc(ts_Dashboard.Height/2);
-  pnl_Contactmiddle.Height:= Trunc(ts_Dashboard.Height/2);
-  pnl_Contactright.Height:= Trunc(ts_Dashboard.Height/2);
-  pnl_Contactmiddle.Width:= Trunc(ts_Dashboard.Width/2);
-  pnl_ContactRight.Width:= Trunc(ts_Dashboard.Width/2);
 end;
 procedure Tfrm_PCM_Main.FormShow(Sender: TObject);
 begin

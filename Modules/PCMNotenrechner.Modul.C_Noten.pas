@@ -15,14 +15,12 @@ uses
   cxGridCustomView, cxGrid, cxPC, cxGridCustomPopupMenu, cxGridPopupMenu, dxBar,
   FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Param,
   FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf, FireDAC.DApt.Intf,
-  FireDAC.Stan.Async, FireDAC.DApt, FireDAC.Comp.DataSet, FireDAC.Comp.Client;
+  FireDAC.Stan.Async, FireDAC.DApt, FireDAC.Comp.DataSet, FireDAC.Comp.Client,
+  dxUIAClasses, dxLayoutContainer, dxLayoutControl, dxLayoutcxEditAdapters,
+  dxLayoutControlAdapters;
 
 type
   Tfrm_Noten = class(TForm)
-    cxGroupBox1: TcxGroupBox;
-    AC_pc_Noten: TcxPageControl;
-    ts_Noten_Durchschnitt: TcxTabSheet;
-    cxGroupBox12: TcxGroupBox;
     grd_Noten_Durchschnitt: TcxGrid;
     tv_Noten_Durchschnitt: TcxGridDBTableView;
     tv_Noten_DurchschnittNachname1: TcxGridDBColumn;
@@ -30,9 +28,6 @@ type
     tv_Noten_DurchschnittNote_Durschschnitt1: TcxGridDBColumn;
     tv_Noten_DurchschnittVorrueckung1: TcxGridDBColumn;
     glvl_Noten_Durchschnitt: TcxGridLevel;
-    ts_Noten_Detailliert: TcxTabSheet;
-    cxScrollBox1: TcxScrollBox;
-    cxGroupBox13: TcxGroupBox;
     grd_Noten_Detail: TcxGrid;
     tv_Noten_Detail: TcxGridDBTableView;
     tv_Noten_DetailID_Benutzer1: TcxGridDBColumn;
@@ -41,17 +36,12 @@ type
     tv_Noten_DetailNote1: TcxGridDBColumn;
     tv_Noten_DetailGeschrieben_Am1: TcxGridDBColumn;
     cxGridLevel2: TcxGridLevel;
-    cxGroupBox14: TcxGroupBox;
     btn_Noten_Detailliert_NewFach: TcxButton;
     btn_Noten_Detailliert_NewTyp: TcxButton;
     cbx_Noten_Note: TcxDBComboBox;
     cbx_Noten_notenart: TcxDBLookupComboBox;
     cbx_Schulfach: TcxDBLookupComboBox;
     dt_Noten_Geschrieben: TcxDBDateEdit;
-    lbl_Noten_Detailliert_Geschriebenam: TcxLabel;
-    lbl_Noten_Detailliert_Notenart: TcxLabel;
-    lbl_Noten_Detailliert_Schulfach: TcxLabel;
-    lbl_Noten_Detailliert_Schulnote: TcxLabel;
     dxBarManager1: TdxBarManager;
     pm_Noten_Durchschnitt: TcxGridPopupMenu;
     pm_Noten_Detail: TcxGridPopupMenu;
@@ -67,6 +57,27 @@ type
     btn_NotenCancel: TdxBarLargeButton;
     btn_NotenSave: TdxBarLargeButton;
     dxBarDockControl1: TdxBarDockControl;
+    dxLayoutControl1Group_Root: TdxLayoutGroup;
+    dxLayoutControl1: TdxLayoutControl;
+    dxLayoutGroup2: TdxLayoutGroup;
+    dxLayoutGroup3: TdxLayoutGroup;
+    dxLayoutGroup4: TdxLayoutGroup;
+    dxLayoutItem1: TdxLayoutItem;
+    dxLayoutGroup5: TdxLayoutGroup;
+    dxLayoutItem2: TdxLayoutItem;
+    dxLayoutGroup1: TdxLayoutGroup;
+    dxLayoutGroup6: TdxLayoutGroup;
+    dxLayoutGroup7: TdxLayoutGroup;
+    dxLayoutGroup8: TdxLayoutGroup;
+    dxLayoutItem4: TdxLayoutItem;
+    dxLayoutItem6: TdxLayoutItem;
+    dxLayoutItem7: TdxLayoutItem;
+    dxLayoutItem8: TdxLayoutItem;
+    dxLayoutItem9: TdxLayoutItem;
+    dxLayoutGroup9: TdxLayoutGroup;
+    dxLayoutItem5: TdxLayoutItem;
+    dxLayoutGroup10: TdxLayoutGroup;
+    dxLayoutItem10: TdxLayoutItem;
     procedure btn_Noten_Detailliert_NewFachClick(Sender: TObject);
     procedure btn_Noten_Detailliert_NewTypClick(Sender: TObject);
     procedure btn_NotenNewClick(Sender: TObject);

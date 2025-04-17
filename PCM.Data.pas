@@ -9,7 +9,8 @@ uses
   FireDAC.Phys.MySQLDef, FireDAC.VCLUI.Wait, Data.DB, FireDAC.Comp.Client,
   System.ImageList, Vcl.ImgList, Vcl.Controls, cxImageList, cxGraphics,
   FireDAC.Stan.Param, FireDAC.DatS, FireDAC.DApt.Intf,VCL.Dialogs,
-  FireDAC.DApt, FireDAC.Comp.DataSet, Vcl.Forms,Winapi.Windows,inifiles,system.uitypes;
+  FireDAC.DApt, FireDAC.Comp.DataSet, Vcl.Forms,Winapi.Windows,inifiles,system.uitypes,
+  cxClasses, dxLayoutLookAndFeels;
 
 type
   Tdm_PCM = class(TDataModule)
@@ -28,6 +29,9 @@ type
     ds_ChartNotentyp: TDataSource;
     qry_Chartnoten: TFDQuery;
     ds_Chartnoten: TDataSource;
+    dxLayoutLookAndFeelList1: TdxLayoutLookAndFeelList;
+    dxLayoutSkinLookAndFeel1: TdxLayoutSkinLookAndFeel;
+    dxLayoutSkinLookAndFeel2: TdxLayoutSkinLookAndFeel;
     procedure con_PCMBeforeConnect(Sender: TObject);
     procedure DataModuleCreate(Sender: TObject);
   private

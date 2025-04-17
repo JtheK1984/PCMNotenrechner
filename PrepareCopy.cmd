@@ -10,4 +10,4 @@ copy /y /v PCMNotenrechner.pdf "e:\Inno\Setupfiles\Programme\PCMNotenrechner"
 copy /y /v PCMNotenrechner.htm "e:\Inno\Setupfiles\Programme\PCMNotenrechner"
 
 echo "Demolizenz erstellen"
-call "E:\Inno\Setupfiles\Programme\PCMLizenzgenerator\PCMLizenzgenerator.exe" /PCM-PCMNotenrechner /1.6 /E:\Inno\Setupfiles\Programme\PCMNotenrechner
+call "E:\Inno\Setupfiles\Programme\PCMLizenzgenerator\PCMLizenzgenerator.exe" /PCM-PCMNotenrechner /1.0 /E:\Inno\Setupfiles\Programme\PCMNotenrechner

@@ -1,7 +1,8 @@
 object dm_PCM: Tdm_PCM
   OnCreate = DataModuleCreate
-  Height = 711
-  Width = 1136
+  Height = 1067
+  Width = 1704
+  PixelsPerInch = 144
   object con_PCM: TFDConnection
     Params.Strings = (
       'Database=pcm'
@@ -11,13 +12,13 @@ object dm_PCM: Tdm_PCM
       'Port=3307'
       'DriverID=MySQL')
     LoginPrompt = False
-    Left = 96
-    Top = 40
+    Left = 144
+    Top = 60
   end
   object imglst_16x16: TcxImageList
     SourceDPI = 96
     FormatVersion = 1
-    DesignInfo = 16777824
+    DesignInfo = 25166736
     ImageInfo = <
       item
         ImageClass = 'TBitmap'
@@ -3130,7 +3131,7 @@ object dm_PCM: Tdm_PCM
     Height = 24
     Width = 24
     FormatVersion = 1
-    DesignInfo = 20447840
+    DesignInfo = 30671760
     ImageInfo = <
       item
         ImageClass = 'TBitmap'
@@ -4230,7 +4231,7 @@ object dm_PCM: Tdm_PCM
     Height = 32
     Width = 32
     FormatVersion = 1
-    DesignInfo = 24117856
+    DesignInfo = 36176784
     ImageInfo = <
       item
         ImageClass = 'TBitmap'
@@ -21599,8 +21600,8 @@ object dm_PCM: Tdm_PCM
     Connection = con_PCM
     SQL.Strings = (
       '')
-    Left = 175
-    Top = 47
+    Left = 263
+    Top = 71
   end
   object qnotenfach: TFDQuery
     Connection = con_PCM
@@ -21608,8 +21609,8 @@ object dm_PCM: Tdm_PCM
       'Select ID,Bezeichnung,Vorrueckung,ID_Benutzer'
       'From notenrechner_Faecher'
       '')
-    Left = 94
-    Top = 240
+    Left = 141
+    Top = 360
   end
   object qnotentyp: TFDQuery
     Connection = con_PCM
@@ -21617,18 +21618,18 @@ object dm_PCM: Tdm_PCM
       'Select ID, Bezeichnung, Faktor,ID_Benutzer'
       'From notenrechner_typ'
       '')
-    Left = 94
-    Top = 288
+    Left = 141
+    Top = 432
   end
   object dsnotenfach: TDataSource
     DataSet = qnotenfach
-    Left = 166
-    Top = 256
+    Left = 249
+    Top = 384
   end
   object dsnotentyp: TDataSource
     DataSet = qnotentyp
-    Left = 166
-    Top = 304
+    Left = 249
+    Top = 456
   end
   object qry_ChartNotenFach: TFDQuery
     Connection = con_PCM
@@ -21642,13 +21643,13 @@ object dm_PCM: Tdm_PCM
       'GROUP BY nf.Bezeichnung'
       ''
       '')
-    Left = 71
-    Top = 119
+    Left = 107
+    Top = 179
   end
   object ds_ChartNotenFach: TDataSource
     DataSet = qry_ChartNotenFach
-    Left = 158
-    Top = 120
+    Left = 237
+    Top = 180
   end
   object qry_ChartNotentyp: TFDQuery
     Connection = con_PCM
@@ -21660,13 +21661,13 @@ object dm_PCM: Tdm_PCM
       'GROUP BY nt.Bezeichnung'
       ''
       '')
-    Left = 71
-    Top = 175
+    Left = 107
+    Top = 263
   end
   object ds_ChartNotentyp: TDataSource
     DataSet = qry_ChartNotentyp
-    Left = 158
-    Top = 176
+    Left = 237
+    Top = 264
   end
   object qry_Chartnoten: TFDQuery
     Connection = con_PCM
@@ -21685,12 +21686,31 @@ object dm_PCM: Tdm_PCM
       'Group by Note'
       'Order by Note ASC'
       '')
-    Left = 94
-    Top = 352
+    Left = 141
+    Top = 528
   end
   object ds_Chartnoten: TDataSource
     DataSet = qry_Chartnoten
-    Left = 166
-    Top = 368
+    Left = 249
+    Top = 552
+  end
+  object dxLayoutLookAndFeelList1: TdxLayoutLookAndFeelList
+    object dxLayoutSkinLookAndFeel1: TdxLayoutSkinLookAndFeel
+      Offsets.ControlOffsetHorz = 5
+      Offsets.ControlOffsetVert = 5
+      Offsets.ItemOffset = 6
+      Offsets.RootItemsAreaOffsetHorz = 11
+      Offsets.RootItemsAreaOffsetVert = 11
+      LookAndFeel.NativeStyle = False
+      PixelsPerInch = 144
+    end
+    object dxLayoutSkinLookAndFeel2: TdxLayoutSkinLookAndFeel
+      Offsets.ControlOffsetHorz = 5
+      Offsets.ControlOffsetVert = 5
+      Offsets.ItemOffset = 6
+      Offsets.RootItemsAreaOffsetHorz = 11
+      Offsets.RootItemsAreaOffsetVert = 11
+      PixelsPerInch = 144
+    end
   end
 end

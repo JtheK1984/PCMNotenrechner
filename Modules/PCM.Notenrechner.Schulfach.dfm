@@ -14,90 +14,78 @@ object frm_Notenrechner_Schulfach: Tfrm_Notenrechner_Schulfach
   Font.Style = []
   Position = poScreenCenter
   TextHeight = 25
-  object cxGroupBox1: TcxGroupBox
+  object cxGrid3: TcxGrid
     Left = 0
-    Top = 63
-    Align = alClient
-    PanelStyle.Active = True
-    Style.BorderStyle = ebsNone
-    TabOrder = 0
-    ExplicitTop = 58
-    ExplicitHeight = 188
-    Height = 183
+    Top = 58
     Width = 631
-    object cxGrid3: TcxGrid
-      Left = 3
-      Top = 3
-      Width = 625
-      Height = 177
-      Align = alClient
-      BevelInner = bvLowered
-      BevelKind = bkFlat
-      BorderStyle = cxcbsNone
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -11
-      Font.Name = 'Tahoma'
-      Font.Style = []
-      ParentFont = False
-      TabOrder = 0
-      LockedStateImageOptions.Effect = lsieDark
-      ExplicitLeft = 2
-      ExplicitTop = 2
-      ExplicitWidth = 627
-      ExplicitHeight = 184
-      object tvData: TcxGridDBTableView
-        Navigator.Buttons.CustomButtons = <>
-        FilterBox.CustomizeDialog = False
-        ScrollbarAnnotations.CustomAnnotations = <>
-        DataController.DataSource = dsData
-        DataController.Filter.PercentWildcard = '*'
-        DataController.Filter.UnderscoreWildcard = '?'
-        DataController.Options = [dcoAnsiSort, dcoCaseInsensitive, dcoAssignGroupingValues, dcoAssignMasterDetailKeys, dcoSaveExpanding]
-        DataController.Summary.DefaultGroupSummaryItems = <>
-        DataController.Summary.FooterSummaryItems = <
-          item
-            Kind = skCount
-          end>
-        DataController.Summary.SummaryGroups = <
-          item
-            Links = <
-              item
-              end>
-            SummaryItems = <
-              item
-              end>
-          end>
-        Filtering.ColumnPopup.MultiSelect = False
-        OptionsBehavior.IncSearch = True
-        OptionsBehavior.ShowHourglassCursor = False
-        OptionsCustomize.ColumnsQuickCustomization = True
-        OptionsData.Deleting = False
-        OptionsData.Inserting = False
-        OptionsView.CellEndEllipsis = True
-        OptionsView.NoDataToDisplayInfoText = '<Keine Daten Vorhanden>'
-        OptionsView.GroupByBox = False
-        OptionsView.HeaderFilterButtonShowMode = fbmButton
-        OptionsView.IndicatorWidth = 14
-        object tvDataBezeichnung: TcxGridDBColumn
-          Caption = 'Schulfach'
-          DataBinding.FieldName = 'Bezeichnung'
-          DataBinding.IsNullValueType = True
-          SortIndex = 0
-          SortOrder = soAscending
-          Width = 400
-        end
-        object tvDataVorrueckung: TcxGridDBColumn
-          Caption = 'Vorr'#252'ckungsfach'
-          DataBinding.FieldName = 'Vorrueckung'
-          DataBinding.IsNullValueType = True
-          PropertiesClassName = 'TcxCheckBoxProperties'
-          Width = 100
-        end
+    Height = 188
+    Align = alClient
+    BevelInner = bvLowered
+    BevelKind = bkFlat
+    BorderStyle = cxcbsNone
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 4
+    LockedStateImageOptions.Effect = lsieDark
+    ExplicitLeft = 2
+    ExplicitTop = 2
+    ExplicitWidth = 627
+    ExplicitHeight = 184
+    object tvData: TcxGridDBTableView
+      Navigator.Buttons.CustomButtons = <>
+      FilterBox.CustomizeDialog = False
+      ScrollbarAnnotations.CustomAnnotations = <>
+      DataController.DataSource = dsData
+      DataController.Filter.PercentWildcard = '*'
+      DataController.Filter.UnderscoreWildcard = '?'
+      DataController.Options = [dcoAnsiSort, dcoCaseInsensitive, dcoAssignGroupingValues, dcoAssignMasterDetailKeys, dcoSaveExpanding]
+      DataController.Summary.DefaultGroupSummaryItems = <>
+      DataController.Summary.FooterSummaryItems = <
+        item
+          Kind = skCount
+        end>
+      DataController.Summary.SummaryGroups = <
+        item
+          Links = <
+            item
+            end>
+          SummaryItems = <
+            item
+            end>
+        end>
+      Filtering.ColumnPopup.MultiSelect = False
+      OptionsBehavior.IncSearch = True
+      OptionsBehavior.ShowHourglassCursor = False
+      OptionsCustomize.ColumnsQuickCustomization = True
+      OptionsData.Deleting = False
+      OptionsData.Inserting = False
+      OptionsView.CellEndEllipsis = True
+      OptionsView.NoDataToDisplayInfoText = '<Keine Daten Vorhanden>'
+      OptionsView.GroupByBox = False
+      OptionsView.HeaderFilterButtonShowMode = fbmButton
+      OptionsView.IndicatorWidth = 14
+      object tvDataBezeichnung: TcxGridDBColumn
+        Caption = 'Schulfach'
+        DataBinding.FieldName = 'Bezeichnung'
+        DataBinding.IsNullValueType = True
+        SortIndex = 0
+        SortOrder = soAscending
+        Width = 400
       end
-      object cxGridLevel3: TcxGridLevel
-        GridView = tvData
+      object tvDataVorrueckung: TcxGridDBColumn
+        Caption = 'Vorr'#252'ckungsfach'
+        DataBinding.FieldName = 'Vorrueckung'
+        DataBinding.IsNullValueType = True
+        PropertiesClassName = 'TcxCheckBoxProperties'
+        Width = 100
       end
+    end
+    object cxGridLevel3: TcxGridLevel
+      GridView = tvData
     end
   end
   object dsData: TDataSource
@@ -145,7 +133,7 @@ object frm_Notenrechner_Schulfach: Tfrm_Notenrechner_Schulfach
     DockControlHeights = (
       0
       0
-      63
+      58
       0)
     object dxBarManager1Bar1: TdxBar
       Caption = 'Custom 1'

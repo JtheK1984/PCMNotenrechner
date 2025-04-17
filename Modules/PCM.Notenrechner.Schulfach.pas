@@ -14,7 +14,7 @@ uses
   FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Param,
   FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf, FireDAC.DApt.Intf,
   FireDAC.Stan.Async, FireDAC.DApt, FireDAC.Comp.DataSet, FireDAC.Comp.Client,
-  dxBar, cxContainer, dxScrollbarAnnotations;
+  dxBar, cxContainer, dxScrollbarAnnotations, dxUIAClasses;
 
 type
   Tfrm_Notenrechner_Schulfach = class(TForm)
@@ -24,7 +24,6 @@ type
     cxGridLevel3: TcxGridLevel;
     tvDataBezeichnung: TcxGridDBColumn;
     tvDataVorrueckung: TcxGridDBColumn;
-    cxGroupBox1: TcxGroupBox;
     qnotenfach: TFDQuery;
     dxBarManager1: TdxBarManager;
     dxBarManager1Bar1: TdxBar;

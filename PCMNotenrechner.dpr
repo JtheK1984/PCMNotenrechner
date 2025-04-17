@@ -15,7 +15,8 @@ uses
   PCM.Notenrechner.Schulfach in 'Modules\PCM.Notenrechner.Schulfach.pas' {frm_Notenrechner_Schulfach},
   PCM.Notenrechner.Notentyp in 'Modules\PCM.Notenrechner.Notentyp.pas' {frm_Notenrechner_Notentyp},
   PCMNotenrechner.Modul.C_Noten in 'Modules\PCMNotenrechner.Modul.C_Noten.pas' {frm_Noten},
-  PCM.splash in 'PCM.splash.pas' {SplashScreen};
+  PCM.splash in 'PCM.splash.pas' {SplashScreen},
+  PCMNotenrechner.dxSettings in 'PCMNotenrechner.dxSettings.pas';
 
 {$R *.res}
 

@@ -24,9 +24,9 @@ object frm_PCM_Main: Tfrm_PCM_Main
   TextHeight = 13
   object navbr_main: TdxNavBar
     Left = 0
-    Top = 35
+    Top = 30
     Width = 200
-    Height = 726
+    Height = 731
     Align = alLeft
     ActiveGroupIndex = 0
     TabOrder = 0
@@ -34,6 +34,7 @@ object frm_PCM_Main: Tfrm_PCM_Main
     View = 14
     OptionsImage.SmallImages = dm_PCM.imglst_16x16
     OptionsStyle.CustomStyles.Background = navbrStyleIt_main
+    ExplicitHeight = 714
     object navbrgrp_Optionen: TdxNavBarGroup
       Caption = 'Optionen'
       SelectedLinkIndex = -1
@@ -155,18 +156,20 @@ object frm_PCM_Main: Tfrm_PCM_Main
   end
   object grpbx_Design: TcxGroupBox
     Left = 200
-    Top = 35
+    Top = 30
     Align = alClient
     PanelStyle.Active = True
     Style.BorderStyle = ebsNone
     TabOrder = 1
-    Height = 726
+    ExplicitWidth = 1058
+    ExplicitHeight = 714
+    Height = 731
     Width = 1064
     object pc_main: TcxPageControl
-      Left = 3
-      Top = 3
-      Width = 1058
-      Height = 720
+      Left = 2
+      Top = 2
+      Width = 1060
+      Height = 727
       Margins.Left = 0
       Margins.Top = 0
       Margins.Right = 0
@@ -180,17 +183,17 @@ object frm_PCM_Main: Tfrm_PCM_Main
       Properties.CustomButtons.Buttons = <>
       Properties.Images = dm_PCM.imglst_16x16
       Properties.Options = [pcoAlwaysShowGoDialogButton, pcoGradient, pcoGradientClientArea, pcoRedrawOnResize, pcoSort]
-      ExplicitLeft = 6
-      ExplicitTop = 6
-      ClientRectBottom = 714
-      ClientRectLeft = 2
-      ClientRectRight = 1052
-      ClientRectTop = 28
+      ExplicitWidth = 1054
+      ExplicitHeight = 710
+      ClientRectBottom = 723
+      ClientRectLeft = 4
+      ClientRectRight = 1056
+      ClientRectTop = 25
       object ts_Dashboard: TcxTabSheet
         Caption = 'Dashboard'
         ImageIndex = 81
-        ExplicitWidth = 1066
-        ExplicitHeight = 725
+        ExplicitWidth = 1046
+        ExplicitHeight = 681
         object pnl_DashboardContacts: TcxGroupBox
           Left = 0
           Top = 0
@@ -199,33 +202,30 @@ object frm_PCM_Main: Tfrm_PCM_Main
           Style.BorderStyle = ebsNone
           Style.Edges = [bLeft, bTop, bRight, bBottom]
           TabOrder = 0
-          ExplicitWidth = 1066
-          ExplicitHeight = 725
-          Height = 686
-          Width = 1050
-          object pnl_Contactmiddle: TcxGroupBox
-            Left = 3
-            Top = 313
-            Align = alLeft
-            Caption = 'Schulf'#228'cher'
-            Style.BorderStyle = ebsFlat
-            Style.Edges = [bLeft, bTop, bRight, bBottom]
+          ExplicitWidth = 1046
+          ExplicitHeight = 681
+          Height = 698
+          Width = 1052
+          object dxLayoutControl1: TdxLayoutControl
+            Left = 2
+            Top = 2
+            Width = 1048
+            Height = 694
+            Align = alClient
             TabOrder = 0
-            ExplicitTop = 308
-            ExplicitHeight = 409
-            Height = 370
-            Width = 491
+            LayoutLookAndFeel = dm_PCM.dxLayoutSkinLookAndFeel1
+            ExplicitLeft = 488
+            ExplicitTop = 272
+            ExplicitWidth = 300
+            ExplicitHeight = 250
             object dxChartControl1: TdxChartControl
-              Left = 3
-              Top = 15
-              Width = 485
-              Height = 346
-              Align = alClient
+              Left = 19
+              Top = 347
+              Width = 463
+              Height = 328
               BorderStyle = cxcbsNone
               Legend.Title.Visible = False
               Titles = <>
-              ExplicitTop = -4
-              ExplicitHeight = 404
               object dxChartSimpleDiagram1: TdxChartSimpleDiagram
                 Title.Visible = False
                 Layout = Horizontal
@@ -248,32 +248,14 @@ object frm_PCM_Main: Tfrm_PCM_Main
                 end
               end
             end
-          end
-          object pnl_ContactRight: TcxGroupBox
-            Left = 494
-            Top = 313
-            Align = alClient
-            Caption = 'Notenarten'
-            Style.BorderStyle = ebsFlat
-            Style.Edges = [bLeft, bTop, bRight, bBottom]
-            TabOrder = 1
-            ExplicitTop = 308
-            ExplicitWidth = 569
-            ExplicitHeight = 409
-            Height = 370
-            Width = 553
             object dxChartControl2: TdxChartControl
-              Left = 8
-              Top = 15
-              Width = 542
-              Height = 346
-              Align = alClient
+              Left = 513
+              Top = 347
+              Width = 516
+              Height = 328
               BorderStyle = cxcbsNone
               Legend.Title.Visible = False
               Titles = <>
-              ExplicitTop = -4
-              ExplicitWidth = 558
-              ExplicitHeight = 404
               object dxChartSimpleDiagram2: TdxChartSimpleDiagram
                 Title.Visible = False
                 Layout = Horizontal
@@ -300,39 +282,14 @@ object frm_PCM_Main: Tfrm_PCM_Main
                 end
               end
             end
-            object cxSplitter1: TcxSplitter
-              Left = 3
-              Top = 15
-              Width = 5
-              Height = 346
-              Control = pnl_Contactmiddle
-              ExplicitTop = -4
-              ExplicitHeight = 404
-            end
-          end
-          object pnl_ContactTop: TcxGroupBox
-            Left = 3
-            Top = 3
-            Align = alTop
-            Caption = 'Noten'
-            Style.BorderStyle = ebsFlat
-            Style.Edges = [bLeft, bTop, bRight, bBottom]
-            TabOrder = 2
-            ExplicitWidth = 1060
-            Height = 305
-            Width = 1044
             object dxChartControl3: TdxChartControl
-              Left = 3
-              Top = 15
-              Width = 1038
-              Height = 281
-              Align = alClient
+              Left = 19
+              Top = 25
+              Width = 1010
+              Height = 285
               BorderStyle = cxcbsNone
               Legend.Title.Visible = False
               Titles = <>
-              ExplicitTop = -4
-              ExplicitWidth = 1054
-              ExplicitHeight = 300
               object dxChartSimpleDiagram3: TdxChartSimpleDiagram
                 Title.Visible = False
                 Layout = Horizontal
@@ -352,16 +309,106 @@ object frm_PCM_Main: Tfrm_PCM_Main
                 end
               end
             end
-          end
-          object cxSplitter2: TcxSplitter
-            Left = 3
-            Top = 308
-            Width = 1044
-            Height = 5
-            AlignSplitter = salBottom
-            Control = pnl_ContactTop
-            ExplicitTop = 717
-            ExplicitWidth = 1060
+            object dxLayoutControl1Group_Root: TdxLayoutGroup
+              AlignHorz = ahClient
+              AlignVert = avClient
+              Hidden = True
+              ShowBorder = False
+              Index = -1
+            end
+            object dxLayoutGroup1: TdxLayoutGroup
+              Parent = dxLayoutControl1Group_Root
+              AlignHorz = ahClient
+              AlignVert = avClient
+              CaptionOptions.Text = 'New Group'
+              ShowBorder = False
+              Index = 0
+            end
+            object dxLayoutGroup2: TdxLayoutGroup
+              Parent = dxLayoutGroup1
+              AlignHorz = ahClient
+              AlignVert = avClient
+              CaptionOptions.Text = 'Noten'
+              Index = 0
+            end
+            object dxLayoutGroup3: TdxLayoutGroup
+              Parent = dxLayoutGroup5
+              AlignHorz = ahClient
+              AlignVert = avClient
+              CaptionOptions.Text = 'Notenarten'
+              Index = 2
+            end
+            object dxLayoutGroup4: TdxLayoutGroup
+              Parent = dxLayoutGroup5
+              AlignHorz = ahClient
+              AlignVert = avClient
+              CaptionOptions.Text = 'Schulf'#228'cher'
+              Index = 0
+            end
+            object dxLayoutGroup5: TdxLayoutGroup
+              Parent = dxLayoutGroup1
+              AlignHorz = ahClient
+              AlignVert = avClient
+              CaptionOptions.Text = 'New Group'
+              LayoutDirection = ldHorizontal
+              ShowBorder = False
+              Index = 2
+            end
+            object dxLayoutItem1: TdxLayoutItem
+              Parent = dxLayoutGroup4
+              AlignHorz = ahClient
+              AlignVert = avClient
+              CaptionOptions.Text = 'New Item'
+              CaptionOptions.Visible = False
+              Control = dxChartControl1
+              ControlOptions.OriginalHeight = 347
+              ControlOptions.OriginalWidth = 487
+              ControlOptions.ShowBorder = False
+              Index = 0
+            end
+            object dxLayoutItem2: TdxLayoutItem
+              Parent = dxLayoutGroup2
+              CaptionOptions.Text = 'New Item'
+              CaptionOptions.Visible = False
+              Control = dxChartControl3
+              ControlOptions.OriginalHeight = 285
+              ControlOptions.OriginalWidth = 1038
+              ControlOptions.ShowBorder = False
+              Index = 0
+            end
+            object dxLayoutItem3: TdxLayoutItem
+              Parent = dxLayoutGroup3
+              AlignHorz = ahClient
+              AlignVert = avClient
+              CaptionOptions.Text = 'New Item'
+              CaptionOptions.Visible = False
+              Control = dxChartControl2
+              ControlOptions.OriginalHeight = 347
+              ControlOptions.OriginalWidth = 542
+              ControlOptions.ShowBorder = False
+              Index = 0
+            end
+            object dxLayoutSplitterItem1: TdxLayoutSplitterItem
+              Parent = dxLayoutGroup1
+              AlignHorz = ahClient
+              AlignVert = avTop
+              SizeOptions.AssignedValues = [sovSizableHorz, sovSizableVert]
+              SizeOptions.SizableHorz = False
+              SizeOptions.SizableVert = False
+              CaptionOptions.Text = 'Splitter'
+              AllowCloseOnClick = True
+              Index = 1
+            end
+            object dxLayoutSplitterItem2: TdxLayoutSplitterItem
+              Parent = dxLayoutGroup5
+              AlignHorz = ahLeft
+              AlignVert = avClient
+              SizeOptions.AssignedValues = [sovSizableHorz, sovSizableVert]
+              SizeOptions.SizableHorz = False
+              SizeOptions.SizableVert = False
+              CaptionOptions.Text = 'Splitter'
+              Index = 1
+            end
           end
         end
       end
@@ -648,11 +695,7 @@ object frm_PCM_Main: Tfrm_PCM_Main
     Top = 232
   end
   object lafCtrl_Main: TcxLookAndFeelController
-    Kind = lfFlat
-    ScrollbarMode = sbmClassic
-    ScrollMode = scmClassic
-    SkinName = 'DevExpressDarkStyle'
-    RenderMode = rmGDIPlus
+    NativeStyle = True
     Left = 88
     Top = 104
   end
@@ -4436,7 +4479,7 @@ object frm_PCM_Main: Tfrm_PCM_Main
     DockControlHeights = (
       0
       0
-      35
+      30
       0)
     object tb_Main: TdxBar
       AllowClose = False

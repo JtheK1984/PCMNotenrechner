@@ -15,7 +15,7 @@ uses
   Vcl.Menus, Vcl.StdCtrls, cxButtons, dxBar, FireDAC.Stan.Intf,
   FireDAC.Stan.Option, FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS,
   FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt,
-  FireDAC.Comp.DataSet, FireDAC.Comp.Client;
+  FireDAC.Comp.DataSet, FireDAC.Comp.Client, dxUIAClasses;
 
 type
   Tfrm_Notenrechner_Notentyp = class(TForm)
@@ -25,7 +25,6 @@ type
     cxGridLevel3: TcxGridLevel;
     tvDataBezeichnung: TcxGridDBColumn;
     tvDataFaktor: TcxGridDBColumn;
-    cxGroupBox1: TcxGroupBox;
     dxBarManager1: TdxBarManager;
     dxBarManager1Bar1: TdxBar;
     btn_NotenNew: TdxBarLargeButton;
