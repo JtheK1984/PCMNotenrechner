@@ -22,16 +22,13 @@ object frm_Noten: Tfrm_Noten
     Align = alClient
     TabOrder = 0
     AutoSize = True
+    LayoutLookAndFeel = dm_PCM.dxLayoutSkinLookAndFeel1
     OptionsImage.Images = dm_PCM.imglst_16x16
-    ExplicitLeft = 352
-    ExplicitTop = 304
-    ExplicitWidth = 300
-    ExplicitHeight = 250
     object grd_Noten_Durchschnitt: TcxGrid
-      Left = 42
-      Top = 71
-      Width = 926
-      Height = 742
+      Left = 30
+      Top = 63
+      Width = 950
+      Height = 762
       BevelInner = bvNone
       BorderStyle = cxcbsNone
       TabOrder = 0
@@ -309,6 +306,7 @@ object frm_Noten: Tfrm_Noten
     object cbx_Noten_Note: TcxDBComboBox
       Left = 10000
       Top = 10000
+      AutoSize = False
       DataBinding.DataField = 'Note'
       DataBinding.DataSource = dsNoten
       ParentFont = False
@@ -319,8 +317,6 @@ object frm_Noten: Tfrm_Noten
         '4'
         '5'
         '6')
-      Style.BorderColor = clWindowFrame
-      Style.BorderStyle = ebs3D
       Style.Font.Charset = DEFAULT_CHARSET
       Style.Font.Color = clWindowText
       Style.Font.Height = -11
@@ -328,16 +324,16 @@ object frm_Noten: Tfrm_Noten
       Style.Font.Style = []
       Style.HotTrack = False
       Style.TransparentBorder = False
-      Style.ButtonStyle = bts3D
-      Style.PopupBorderStyle = epbsFrame3D
       Style.IsFontAssigned = True
       TabOrder = 6
       Visible = False
+      Height = 21
       Width = 385
     end
     object cbx_Noten_notenart: TcxDBLookupComboBox
       Left = 10000
       Top = 10000
+      AutoSize = False
       DataBinding.DataField = 'ID_Notentyp'
       DataBinding.DataSource = dsNoten
       ParentFont = False
@@ -348,8 +344,6 @@ object frm_Noten: Tfrm_Noten
           FieldName = 'Bezeichnung'
         end>
       Properties.ListSource = dm_PCM.dsnotentyp
-      Style.BorderColor = clWindowFrame
-      Style.BorderStyle = ebs3D
       Style.Font.Charset = DEFAULT_CHARSET
       Style.Font.Color = clWindowText
       Style.Font.Height = -11
@@ -357,16 +351,16 @@ object frm_Noten: Tfrm_Noten
       Style.Font.Style = []
       Style.HotTrack = False
       Style.TransparentBorder = False
-      Style.ButtonStyle = bts3D
-      Style.PopupBorderStyle = epbsFrame3D
       Style.IsFontAssigned = True
       TabOrder = 4
       Visible = False
+      Height = 21
       Width = 352
     end
     object cbx_Schulfach: TcxDBLookupComboBox
       Left = 10000
       Top = 10000
+      AutoSize = False
       DataBinding.DataField = 'ID_NotenFach'
       DataBinding.DataSource = dsNoten
       ParentFont = False
@@ -377,8 +371,6 @@ object frm_Noten: Tfrm_Noten
           FieldName = 'Bezeichnung'
         end>
       Properties.ListSource = dm_PCM.dsnotenfach
-      Style.BorderColor = clWindowFrame
-      Style.BorderStyle = ebs3D
       Style.Font.Charset = DEFAULT_CHARSET
       Style.Font.Color = clWindowText
       Style.Font.Height = -11
@@ -386,21 +378,19 @@ object frm_Noten: Tfrm_Noten
       Style.Font.Style = []
       Style.HotTrack = False
       Style.TransparentBorder = False
-      Style.ButtonStyle = bts3D
-      Style.PopupBorderStyle = epbsFrame3D
       Style.IsFontAssigned = True
       TabOrder = 2
       Visible = False
+      Height = 21
       Width = 353
     end
     object dt_Noten_Geschrieben: TcxDBDateEdit
       Left = 10000
       Top = 10000
+      AutoSize = False
       DataBinding.DataField = 'Geschrieben_Am'
       DataBinding.DataSource = dsNoten
       ParentFont = False
-      Style.BorderColor = clWindowFrame
-      Style.BorderStyle = ebs3D
       Style.Font.Charset = DEFAULT_CHARSET
       Style.Font.Color = clWindowText
       Style.Font.Height = -11
@@ -408,11 +398,10 @@ object frm_Noten: Tfrm_Noten
       Style.Font.Style = []
       Style.HotTrack = False
       Style.TransparentBorder = False
-      Style.ButtonStyle = bts3D
-      Style.PopupBorderStyle = epbsFrame3D
       Style.IsFontAssigned = True
       TabOrder = 7
       Visible = False
+      Height = 21
       Width = 384
     end
     object dxBarDockControl1: TdxBarDockControl

@@ -214,15 +214,13 @@ object frm_PCM_Main: Tfrm_PCM_Main
             Align = alClient
             TabOrder = 0
             LayoutLookAndFeel = dm_PCM.dxLayoutSkinLookAndFeel1
-            ExplicitLeft = 488
-            ExplicitTop = 272
-            ExplicitWidth = 300
-            ExplicitHeight = 250
+            ExplicitWidth = 1042
+            ExplicitHeight = 677
             object dxChartControl1: TdxChartControl
               Left = 19
-              Top = 347
-              Width = 463
-              Height = 328
+              Top = 369
+              Width = 490
+              Height = 306
               BorderStyle = cxcbsNone
               Legend.Title.Visible = False
               Titles = <>
@@ -249,10 +247,10 @@ object frm_PCM_Main: Tfrm_PCM_Main
               end
             end
             object dxChartControl2: TdxChartControl
-              Left = 513
-              Top = 347
-              Width = 516
-              Height = 328
+              Left = 540
+              Top = 369
+              Width = 489
+              Height = 306
               BorderStyle = cxcbsNone
               Legend.Title.Visible = False
               Titles = <>
@@ -286,7 +284,7 @@ object frm_PCM_Main: Tfrm_PCM_Main
               Left = 19
               Top = 25
               Width = 1010
-              Height = 285
+              Height = 307
               BorderStyle = cxcbsNone
               Legend.Title.Visible = False
               Titles = <>
@@ -361,17 +359,19 @@ object frm_PCM_Main: Tfrm_PCM_Main
               CaptionOptions.Text = 'New Item'
               CaptionOptions.Visible = False
               Control = dxChartControl1
-              ControlOptions.OriginalHeight = 347
-              ControlOptions.OriginalWidth = 487
+              ControlOptions.OriginalHeight = 100
+              ControlOptions.OriginalWidth = 100
               ControlOptions.ShowBorder = False
               Index = 0
             end
             object dxLayoutItem2: TdxLayoutItem
               Parent = dxLayoutGroup2
+              AlignHorz = ahClient
+              AlignVert = avClient
               CaptionOptions.Text = 'New Item'
               CaptionOptions.Visible = False
               Control = dxChartControl3
-              ControlOptions.OriginalHeight = 285
+              ControlOptions.OriginalHeight = 100
               ControlOptions.OriginalWidth = 1038
               ControlOptions.ShowBorder = False
               Index = 0
@@ -383,8 +383,8 @@ object frm_PCM_Main: Tfrm_PCM_Main
               CaptionOptions.Text = 'New Item'
               CaptionOptions.Visible = False
               Control = dxChartControl2
-              ControlOptions.OriginalHeight = 347
-              ControlOptions.OriginalWidth = 542
+              ControlOptions.OriginalHeight = 100
+              ControlOptions.OriginalWidth = 100
               ControlOptions.ShowBorder = False
               Index = 0
             end

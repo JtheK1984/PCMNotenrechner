@@ -11,6 +11,8 @@ object dm_PCM: Tdm_PCM
       'Server=3e0h2cz1k1ji0ttu.myfritz.net'
       'Port=3307'
       'DriverID=MySQL')
+    ResourceOptions.AssignedValues = [rvAutoReconnect]
+    ResourceOptions.AutoReconnect = True
     LoginPrompt = False
     Left = 144
     Top = 60
