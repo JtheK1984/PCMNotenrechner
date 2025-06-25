@@ -161,8 +161,6 @@ object frm_PCM_Main: Tfrm_PCM_Main
     PanelStyle.Active = True
     Style.BorderStyle = ebsNone
     TabOrder = 1
-    ExplicitWidth = 1058
-    ExplicitHeight = 714
     Height = 731
     Width = 1064
     object pc_main: TcxPageControl
@@ -192,6 +190,8 @@ object frm_PCM_Main: Tfrm_PCM_Main
       object ts_Dashboard: TcxTabSheet
         Caption = 'Dashboard'
         ImageIndex = 81
+        ExplicitLeft = 0
+        ExplicitTop = 0
         ExplicitWidth = 1046
         ExplicitHeight = 681
         object pnl_DashboardContacts: TcxGroupBox
@@ -202,8 +202,6 @@ object frm_PCM_Main: Tfrm_PCM_Main
           Style.BorderStyle = ebsNone
           Style.Edges = [bLeft, bTop, bRight, bBottom]
           TabOrder = 0
-          ExplicitWidth = 1046
-          ExplicitHeight = 681
           Height = 698
           Width = 1052
           object dxLayoutControl1: TdxLayoutControl
