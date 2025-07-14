@@ -67,3 +67,9 @@ __recovery/
 
 # Boss dependency manager vendor folder https://github.com/HashLoad/boss
 modules/
+/Versioninfo32.RES
+/Versioninfo64.RES
+/Win64/Release/PCMNotenrechner.de
+/Win64/Release/PCMNotenrechner.en
+/Win64/Release/PCMNotenrechner.nds
+/Win64/Release/PCMNotenrechner.ntr
