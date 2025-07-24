@@ -31,26 +31,23 @@ uses
 
 var
   ifini: TIniFile;
-  sStyle: String;
   slocale: String;
 
 begin
   Checkinis;
   ifini:=TIniFile.create(GetEnvironmentVariable('LOCALAPPDATA') + '\PCM\PCM.ini');
-  sStyle:=ifini.ReadString('PCMNotenrechner','Style','Windows');
-  slocale:=ifini.ReadString('PCMBackup','Language','de');
+  slocale:=ifini.ReadString('PCMNotenrechner','Language','de');
   ifini.Free;
   GlobalWebView2Loader                := TWVLoader.Create(nil);
   GlobalWebView2Loader.UserDataFolder := GetEnvironmentVariable('LOCALAPPDATA') + '\PCM\CustomCache';
   GlobalWebView2Loader.StartWebView2;
   Application.Initialize;
-  TStyleManager.TrySetStyle(sStyle);
   {$IFDEF WIN64}
   Application.Title:= 'PCM - Notenrechner 64-Bit';
-  TNtTranslator.SetNew(slocale,[],'de');
   {$else}
   Application.Title:= 'PCM - Notenrechner 32-Bit';
   {$ENDIF}
+  TNtTranslator.SetNew(slocale,[],'de');
   Application.MainFormOnTaskbar := True;
   Application.CreateForm(Tdm_PCM,dm_PCM);
   Application.CreateForm(Tfrm_PCM_Main,frm_PCM_Main);

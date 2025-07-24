@@ -72,9 +72,6 @@ const
   PCM_Connectionname =  'notenrechner';
   PCM_Logname =  'PCMNotenrechner';
   PCM_Programmnummer =  2;
-  sDefaultLayoutText =  'Wollen Sie das Layout des Suchgitters wirklich zurücksetzen? ' +
-                        'Ihre eigenen Einstellungen gehen dabei verloren.';
-  sDefaultLayoutHeader = 'Layout zurücksetzen';
   GV_NOTENKOMPRIMIERT = 2;
   GV_NOTENDETAIL = 3;
 
@@ -94,7 +91,6 @@ implementation
 uses PCM.Main,
      PCM.Functions,
      PCM.Functions.Lizenz,
-     PCM.Strings,
      PCM.SQL;
 
 procedure Tdm_PCM.DataModuleCreate(Sender: TObject);

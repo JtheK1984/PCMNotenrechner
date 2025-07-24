@@ -108,8 +108,8 @@ object frm_Noten: Tfrm_Noten
     object grd_Noten_Detail: TcxGrid
       Left = 10000
       Top = 10000
-      Width = 926
-      Height = 586
+      Width = 950
+      Height = 614
       BevelInner = bvNone
       BorderStyle = cxcbsNone
       TabOrder = 8
@@ -328,7 +328,7 @@ object frm_Noten: Tfrm_Noten
       TabOrder = 6
       Visible = False
       Height = 21
-      Width = 385
+      Width = 397
     end
     object cbx_Noten_notenart: TcxDBLookupComboBox
       Left = 10000
@@ -355,7 +355,7 @@ object frm_Noten: Tfrm_Noten
       TabOrder = 4
       Visible = False
       Height = 21
-      Width = 352
+      Width = 364
     end
     object cbx_Schulfach: TcxDBLookupComboBox
       Left = 10000
@@ -382,7 +382,7 @@ object frm_Noten: Tfrm_Noten
       TabOrder = 2
       Visible = False
       Height = 21
-      Width = 353
+      Width = 365
     end
     object dt_Noten_Geschrieben: TcxDBDateEdit
       Left = 10000
@@ -402,12 +402,12 @@ object frm_Noten: Tfrm_Noten
       TabOrder = 7
       Visible = False
       Height = 21
-      Width = 384
+      Width = 396
     end
     object dxBarDockControl1: TdxBarDockControl
       Left = 10000
       Top = 10000
-      Width = 954
+      Width = 970
       Height = 58
       Align = dalNone
       BarManager = dxBarManager1
@@ -462,7 +462,7 @@ object frm_Noten: Tfrm_Noten
       Parent = dxLayoutGroup2
       CaptionOptions.ImageIndex = 79
       CaptionOptions.Text = 'Noten'#252'bersicht detailliert'
-      ItemIndex = 2
+      ItemIndex = 1
       Index = 1
     end
     object dxLayoutItem2: TdxLayoutItem
@@ -500,7 +500,6 @@ object frm_Noten: Tfrm_Noten
       AlignHorz = ahClient
       AlignVert = avTop
       CaptionOptions.Text = 'New Group'
-      ItemIndex = 1
       LayoutDirection = ldHorizontal
       ShowBorder = False
       Index = 1
@@ -527,7 +526,7 @@ object frm_Noten: Tfrm_Noten
     object dxLayoutItem6: TdxLayoutItem
       Parent = dxLayoutGroup7
       AlignHorz = ahClient
-      AlignVert = avClient
+      AlignVert = avTop
       CaptionOptions.Text = 'Geschrieben:'
       CaptionOptions.Width = 70
       Control = dt_Noten_Geschrieben
@@ -539,7 +538,7 @@ object frm_Noten: Tfrm_Noten
     object dxLayoutItem7: TdxLayoutItem
       Parent = dxLayoutGroup7
       AlignHorz = ahClient
-      AlignVert = avClient
+      AlignVert = avTop
       CaptionOptions.Text = 'Schulnote:'
       CaptionOptions.Width = 70
       Control = cbx_Noten_Note
@@ -551,7 +550,7 @@ object frm_Noten: Tfrm_Noten
     object dxLayoutItem8: TdxLayoutItem
       Parent = dxLayoutGroup10
       AlignHorz = ahClient
-      AlignVert = avClient
+      AlignVert = avTop
       CaptionOptions.Text = 'Notenart:'
       CaptionOptions.Width = 70
       Control = cbx_Noten_notenart
@@ -563,7 +562,7 @@ object frm_Noten: Tfrm_Noten
     object dxLayoutItem9: TdxLayoutItem
       Parent = dxLayoutGroup9
       AlignHorz = ahClient
-      AlignVert = avClient
+      AlignVert = avTop
       CaptionOptions.Text = 'Schulfach:'
       CaptionOptions.Width = 70
       Control = cbx_Schulfach
@@ -584,7 +583,7 @@ object frm_Noten: Tfrm_Noten
     object dxLayoutItem5: TdxLayoutItem
       Parent = dxLayoutGroup9
       AlignHorz = ahLeft
-      AlignVert = avClient
+      AlignVert = avTop
       CaptionOptions.Text = 'New Item'
       CaptionOptions.Visible = False
       Control = btn_Noten_Detailliert_NewFach

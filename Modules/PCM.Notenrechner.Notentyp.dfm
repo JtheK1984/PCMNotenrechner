@@ -31,10 +31,8 @@ object frm_Notenrechner_Notentyp: Tfrm_Notenrechner_Notentyp
     ParentFont = False
     TabOrder = 4
     LockedStateImageOptions.Effect = lsieDark
-    ExplicitLeft = 2
-    ExplicitTop = 2
-    ExplicitWidth = 627
-    ExplicitHeight = 184
+    ExplicitWidth = 625
+    ExplicitHeight = 171
     object tvData: TcxGridDBTableView
       Navigator.Buttons.CustomButtons = <>
       FilterBox.CustomizeDialog = False

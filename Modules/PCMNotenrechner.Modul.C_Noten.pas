@@ -109,14 +109,14 @@ implementation
 {$R *.dfm}
 
 uses  PCM.Data,PCM.Notenrechner.Schulfach,
-      PCM.Notenrechner.Notentyp, PCM.Main;
+      PCM.Notenrechner.Notentyp, PCM.Main, PCM.Strings;
 
 procedure Tfrm_Noten.tv_Noten_DurchschnittVorrueckung1GetDataText(Sender: TcxCustomGridTableItem; ARecordIndex: Integer; var AText: string);
 begin
   if AText = 'true' then
-    AText:= 'Ja'
+    AText:= rs_General_Ja
   else
-    AText:= 'Nein';
+    AText:= rs_General_Nein;
 end;
 procedure Tfrm_Noten.SetButtons;
 begin

@@ -145,6 +145,7 @@ type
     procedure ppmbtn_MusicClick(Sender: TObject);
     procedure ppmbtn_SpracheClick(Sender: TObject);
     procedure ppmbtn_SysteminfoClick(Sender: TObject);
+    procedure ppmbtn_KonfigurationClick(Sender: TObject);
   private
     { Private-Deklarationen }
 
@@ -371,24 +372,17 @@ end;
 {$Region Navbar}
 procedure Tfrm_PCM_Main.iSpracheClick(Sender: TObject);
 var
-  iniFile: TIniFile;
+  ifINI: TIniFile;
 begin
   Application.CreateForm(Tfrm_PCM_Language,frm_PCM_Language);
   frm_PCM_Language.Position:= poScreenCenter;
-  frm_PCM_Language.ClientHeight:= 214;
   frm_PCM_Language.ShowModal;
-  TNtTranslator.SetNew(dm_PCM.slocale,[],'de');
-  TNtTranslator.TranslateForms;
-  iniFile := TIniFile.Create(GetEnvironmentVariable('LOCALAPPDATA') + '\PCM\PCM.ini');
+  ifINI := TIniFile.Create(GetEnvironmentVariable('LOCALAPPDATA') + '\PCM\PCM.ini');
   try
-    iniFile.WriteString(PCM_Logname, 'Language', dm_PCm.sLocale);
+    ifINI.WriteString(PCM_Logname, 'Language', dm_PCm.sLocale);
   finally
-    iniFile.Free;
+    ifINI.Free;
   end;
-  Caption:= PCM_Programmname;
-  trayic_Main.popupmenu:= ppm_Main;
-  LoadData;
-  btn_RefreshRightsClick(Self);
 end;
 procedure Tfrm_PCM_Main.NavBarClick(Sender: TObject);
 var
@@ -448,7 +442,7 @@ begin
         2:
           begin
             sModul:= 'Notenübersicht';
-            sModulCaption := 'i'  + 'Notenübersicht';
+            sModulCaption := 'i'  + rs_PCMNotenrechner_Notenuebersicht;
             dm_PCM.iModulTab:= 1;
           end;
 
@@ -504,7 +498,7 @@ begin
         begin
           Screen.Cursor := crHourglass;
           try
-            ShowWaitForm(TForm(Self), PWideChar('Formular wird geladen'), 1,417, 65);
+            ShowWaitForm(TForm(Self), PWideChar(rs_General_Formload), 1,417, 65);
             Application.ProcessMessages;
             WaitFormStep;
             TForm(Module.Instance^) := Module.FormClass.Create(Nil);
@@ -627,10 +621,6 @@ begin
 end;
 procedure Tfrm_PCM_Main.FormShow(Sender: TObject);
 begin
-  {$ifdef WIn32}
-  iSprache.Visible:= true;
-  ppmbtn_Sprache.Visible:= true;
-  {$endif}
   lafCtrl_Main.NativeStyle:= false;
   trayIC_Main.Hint:= PCM_Programmname;
   dm_PCM.iDBType:= 0;
@@ -681,6 +671,13 @@ begin
   WindowState:= TWindowState.wsMaximized;
   SetForegroundWindow(frm_PCM_main.Handle);
 end;
+procedure Tfrm_PCM_Main.ppmbtn_KonfigurationClick(Sender: TObject);
+begin
+  navbarclick(iDesign);
+  WindowState:= TWindowState.wsMaximized;
+  SetForegroundWindow(frm_PCM_main.Handle);
+end;
+
 procedure Tfrm_PCM_Main.ppmbtn_HandbuchClick(Sender: TObject);
 begin
   navbarclick(iHandbuch);
@@ -689,7 +686,7 @@ begin
 end;
 procedure Tfrm_PCM_Main.ppmbtn_SpracheClick(Sender: TObject);
 begin
-  navbarclick(iSprache);
+  iSpracheClick(Sender);
   WindowState:= TWindowState.wsMaximized;
   SetForegroundWindow(frm_PCM_main.Handle);
 end;

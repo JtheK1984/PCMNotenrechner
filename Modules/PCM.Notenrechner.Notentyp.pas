@@ -57,7 +57,7 @@ implementation
 
 {$R *.dfm}
 
-uses  PCM.Main, PCM.Data;
+uses  PCM.Main, PCM.Data, PCM.Strings;
 
 procedure Tfrm_Notenrechner_Notentyp.btn_NotenCancelClick(Sender: TObject);
 begin
@@ -87,6 +87,7 @@ begin
 end;
 function Tfrm_Notenrechner_Notentyp.Execute(Caption: string; Recht: integer) : boolean;
 begin
+  tvDataFaktor.Caption:= rs_PCMNotenrechner_Faktor;
   qnotentyp.open;
   iRecht:= Recht;
   Self.Caption := Caption;
