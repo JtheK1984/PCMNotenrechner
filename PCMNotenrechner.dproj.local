@@ -1,9 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <BorlandProject>
 	<Transactions>
-    <Transaction>1899.12.30 00:00:00.000.171,E:\Projekte\Windows\PCMNotenrechner\Modules\PCMNotenrechner.Modul.B_Config.pas=</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.337,=E:\Projekte\Windows\PCMNotenrechner\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.650,E:\Projekte\Windows\PCMNotenrechner\Unit1.pas=E:\Projekte\Windows\PCMNotenrechner\Modules\PCM.Notenrechner.Strings.pas</Transaction>
     <Transaction>1899.12.30 00:00:00.000.103,E:\Projekte\Windows\PCMNotenrechner\Modules\PCMNotenrechner.Modul.A_User.pas=</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.247,=E:\Projekte\Windows\PCMNotenrechner\PCM.splash.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.171,E:\Projekte\Windows\PCMNotenrechner\Modules\PCMNotenrechner.Modul.B_Config.pas=</Transaction>
     <Transaction>1899.12.30 00:00:00.000.087,=E:\Projekte\Windows\PCMNotenrechner\PCMNotenrechner.dxSettings.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.247,=E:\Projekte\Windows\PCMNotenrechner\PCM.splash.pas</Transaction>
   </Transactions>
 </BorlandProject>

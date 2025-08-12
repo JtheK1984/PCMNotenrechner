@@ -57,7 +57,7 @@ implementation
 
 {$R *.dfm}
 
-uses  PCM.Main, PCM.Data, PCM.Strings;
+uses  PCM.Main, PCM.Data, PCM.Notenrechner.Strings;
 
 procedure Tfrm_Notenrechner_Notentyp.btn_NotenCancelClick(Sender: TObject);
 begin

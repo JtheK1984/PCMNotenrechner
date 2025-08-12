@@ -3,14 +3,21 @@ unit PCM.splash;
 interface
 
 uses
+  {$Region uses}
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, cxGraphics, cxControls, cxLookAndFeels,
-  cxLookAndFeelPainters, Vcl.ExtCtrls,
+  cxLookAndFeelPainters, Vcl.ExtCtrls, FireDAC.Stan.Param,
   dxGDIPlusClasses, dxActivityIndicator, cxContainer, cxEdit, cxProgressBar,
   cxImage, cxLabel, cxGroupBox, cxClasses, inifiles, dxUIAClasses;
-
+  {$EndRegion uses}
 type
+  {$Region type}
   TSplashScreen = class(TForm)
+    ActivityIndicator: TdxActivityIndicator;
+    img_Splash: TImage;
+    lbl_Progname: TcxLabel;
+    lbl_ProgVersion: TcxLabel;
+    prgbr_Splash: TcxProgressBar;
     Timer1: TTimer;
     Timer2: TTimer;
     Timer3: TTimer;
@@ -19,11 +26,6 @@ type
     Timer6: TTimer;
     Timer11: TTimer;
     Panel1: TPanel;
-    img_Splash: TImage;
-    ActivityIndicator: TdxActivityIndicator;
-    lbl_Progname: TcxLabel;
-    lbl_ProgVersion: TcxLabel;
-    prgbr_Splash: TcxProgressBar;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure Timer1Timer(Sender: TObject);
     procedure Timer2Timer(Sender: TObject);
@@ -38,17 +40,21 @@ type
     { Public-Deklarationen }
     bRestart: boolean;
     function Execute(ARestart: boolean): boolean;
+    procedure Checkrights;
+    procedure CheckDemo;
     procedure SetAppVersion;
   end;
-
+  {$EndRegion type}
 var
+  {$Region var}
   SplashScreen: TSplashScreen;
-
+  {$EndRegion var}
 implementation
 
 {$R *.dfm}
 
 uses
+  {$Region uses}
   PCM.Main,
   PCM.Data,
   PCM.Functions,
@@ -56,7 +62,11 @@ uses
   PCM.Helper,
   PCM.SQL,
   PCM.Strings;
-
+  {$EndRegion uses}
+////////////////////////////////////////////////////////////////////////////////
+// Hilfsfunktionen                                                            //
+////////////////////////////////////////////////////////////////////////////////
+{$Region Hilfsfunktionen}
 procedure TSplashScreen.SetAppVersion;
 var
   dwVerInfoSize: DWord;
@@ -65,7 +75,6 @@ var
   ffiVerValue: PVSFixedFileInfo;
   dwdDummy: DWord;
   Result: String;
-  itest: integer;
 begin
   dwVerInfoSize := GetFileVersionInfoSize(PChar(ParamStr(0)), dwdDummy);
   if dwVerInfoSize = 0 then
@@ -83,20 +92,65 @@ begin
   FreeMem(poiVerInfo, dwVerInfoSize);
   lbl_ProgVersion.Caption := 'Version ' + Result;
   lbl_Progname.Caption := PCM_Programmname;
-  lbl_Progname.Left:= Round((1000 - 340) /2);
+end;
+procedure TSplashScreen.Checkrights;
+begin
+  dm_PCM.qry_Work.SQL.Text:= ASSQL_GetAllRights[dm_PCM.iDBType];
+  dm_PCM.qry_Work.ParamByName('ID').AsInteger := dm_PCM.iIDBenutzerPCM;
+  dm_PCM.qry_Work.Open;
+  dm_PCM.iBenutzer:= dm_PCM.qry_Work.FieldByName('Benutzer').asInteger;
+  dm_PCM.int_NotenRight:= dm_PCM.qry_work.FieldByName('Noten').asInteger;
+  dm_PCM.iDesign:= dm_PCM.qry_Work.FieldByName('Design').asInteger;
+  dm_PCM.qry_Work.Close;
+
+  // Benutzerverwaltung / Kein Recht
+  if (dm_PCM.iBenutzer = 0)  and (dm_PCM.iDesign = 0) then
+  begin
+    frm_PCm_Main.navbrgrp_Optionen.Visible:= false;
+    frm_PCm_Main.iBenutzerverwaltung.Visible:= false;
+  end;
+
+  // Benutzerverwaltung / Lesen / Ändern / Vollzugriff
+  case dm_PCM.iBenutzer of
+  0: frm_PCm_Main.iBenutzerverwaltung.Visible:= false;
+  1,2,3:
+    begin
+      frm_PCm_Main.navbrgrp_Optionen.Visible:= true;
+      frm_PCm_Main.iBenutzerverwaltung.Visible:= true;
+    end;
+  end;
+
+  // Audioplayer / Lesen / Ändern / Vollzugriff
+  case dm_PCM.int_NotenRight of
+  0: frm_PCm_Main.nb_Notenverwaltung.Visible:= false;
+  1,2,3:
+    begin
+      frm_PCm_Main.nb_Notenverwaltung.Visible:= true;
+      frm_PCm_Main.iNotenuebersicht.Visible:= true;
+    end;
+  end;
+end;
+procedure TSplashScreen.CheckDemo;
+begin
+  frm_pcm_Main.Caption:= PCM_Programmname;
+  frm_pcm_Main.trayIC_Main.PopupMenu:= frm_pcm_Main.ppm_main;
+  if dm_PCM.bDemo then
+    frm_pcm_main.Caption:=PCM_Programmname + rs_Function_APPInfo_Demolizenz + DateTostr(dm_PCM.dtGueltig);
 end;
 function TSplashScreen.Execute(ARestart: boolean): boolean;
 begin
   SetAppVersion;
   bRestart:= ARestart;
   if bRestart then
+  begin
     prgbr_Splash.Properties.Max:= 1
-  else
-    prgbr_Splash.Properties.Max:= 7;
-
-
-
-
+  end
+  else begin
+    if PCM_Lizenz then
+      prgbr_Splash.Properties.Max:= 7
+    else
+      prgbr_Splash.Properties.Max:= 6;
+  end;
   prgbr_Splash.Properties.Text:= rs_Splash_Sprache;
   timer1.Enabled:= true;
   if ShowModal = mrOk then
@@ -108,12 +162,11 @@ begin
   end;
   Release;
 end;
-procedure TSplashScreen.FormClose(Sender: TObject; var Action: TCloseAction);
-begin
-  Action := caFree;
-end;
-
-
+{$EndRegion Hilfsfunktionen}
+////////////////////////////////////////////////////////////////////////////////
+// Timerfunktionen                                                            //
+////////////////////////////////////////////////////////////////////////////////
+{$Region Timerfunktionen}
 procedure TSplashScreen.Timer1Timer(Sender: TObject);
 begin
   Timer1.Enabled := False;
@@ -123,16 +176,26 @@ begin
   frm_PCm_Main.loc_lang.LanguageIndex := 1;
   if not bRestart then
   begin
-    prgbr_Splash.Properties.Text:= rs_Splash_Lizenz;
-    Timer11.enabled:= true;
+    if PCM_Lizenz then
+    begin
+      prgbr_Splash.Properties.Text:= rs_Splash_Lizenz;
+      Timer11.enabled:= true;
+    end
+    else begin
+      prgbr_Splash.Properties.Text:= rs_Splash_Login;
+      Timer2.enabled:= true;
+    end;
   end
   else begin
+    dm_PCM.iIDBenutzerPCM:= StrToInt(Copy(ParamStr(3),2,Length(ParamStr(3))));
+    Checkrights;
+    frm_pcm_main.LoadData;
+    CheckDemo;
+    frm_pcm_Main.RegisterNavBarItems;
     ModalResult := mrOk;
   end;
   Application.ProcessMessages;
 end;
-
-
 procedure TSplashScreen.Timer11Timer(Sender: TObject);
 begin
   Timer11.enabled:= false;
@@ -147,7 +210,6 @@ begin
   prgbr_Splash.Properties.Text:= rs_Splash_Login;
   Timer2.enabled:= true;
 end;
-
 procedure TSplashScreen.Timer2Timer(Sender: TObject);
 begin
   Timer2.Enabled := False;
@@ -174,14 +236,7 @@ procedure TSplashScreen.Timer3Timer(Sender: TObject);
 begin
   Timer3.Enabled := False;
   prgbr_Splash.Position:= prgbr_Splash.Position + 1;
-  dm_PCM.qry_work.SQL.Text:= 'SELECT vr.ID,vr.Benutzer,vr.nr_Noten,vr.Alle_Benutzer FROM benutzer vb '+
-                           'LEFT OUTER JOIN rechte vr ON vr.ID = vb.ID_rechte ' +
-                           'WHERE vb.id =  :ID';
-  dm_PCM.qry_work.ParamByName('ID').AsInteger := dm_PCM.iIDBenutzerPCM;
-  dm_PCM.qry_work.Open;
-  dm_PCM.int_NotenRight:= dm_PCM.qry_work.FieldByName('nr_Noten').asInteger;
-  dm_PCM.bAlleBenutzer:= dm_PCM.qry_work.FieldByName('alle_benutzer').AsBoolean;
-  dm_PCM.qry_work.Close;
+  CheckRights;
   Application.ProcessMessages;
   prgbr_Splash.Properties.Text:= rs_Splash_Konfig;
   Timer4.Enabled:= true;
@@ -199,10 +254,7 @@ procedure TSplashScreen.Timer5Timer(Sender: TObject);
 begin
   Timer5.Enabled := False;
   prgbr_Splash.Position:= prgbr_Splash.Position + 1;
-  frm_pcm_Main.Caption:= PCM_Programmname;
-  frm_pcm_Main.trayIC_Main.PopupMenu:= frm_pcm_Main.ppm_main;
-  if dm_PCM.bDemo then
-    frm_pcm_main.Caption:=PCM_Programmname + rs_Function_Lizenz_LizenzGueltig + DateTostr(dm_PCM.dtGueltig);
+  CheckDemo;
   Application.ProcessMessages;
   prgbr_Splash.Properties.Text:= rs_Splash_MenuReg;
   Timer6.Enabled:= true;
@@ -215,5 +267,14 @@ begin
   Application.ProcessMessages;
   ModalResult := mrOk;
 end;
-
+{$EndRegion Timerfunktionen}
+////////////////////////////////////////////////////////////////////////////////
+// Formfunktionen                                                             //
+////////////////////////////////////////////////////////////////////////////////
+{$Region Formfunktionen}
+procedure TSplashScreen.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  Action := caFree;
+end;
+{$EndRegion Formfunktionen}
 end.

@@ -182,7 +182,7 @@ uses  PCM.Benutzerverwaltung,
       PCM.Helper,
       PCMNotenrechner.Modul.C_Noten,
       PCM.SQL,
-			PCM.Strings, PCM.splash;
+			PCM.Notenrechner.Strings, PCM.splash;
 
 ////////////////////////////////////////////////////////////////////////////////
 // Hilfsfunktionen                                                            //

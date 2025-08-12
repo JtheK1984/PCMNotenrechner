@@ -57,6 +57,7 @@ type
     dtGueltig,dtCurrDate: Tdate;
     bAutologin: boolean;
     sUSerAutologin: string;
+    iDesign: Integer;
   end;
 
 var
@@ -74,7 +75,7 @@ const
   PCM_Programmnummer =  2;
   GV_NOTENKOMPRIMIERT = 2;
   GV_NOTENDETAIL = 3;
-
+  PCM_Lizenz = true;
 resourcestring
   {$IFDEF WIN64}
   PCM_Programmname = 'PCM - Notenrechner 64-Bit';

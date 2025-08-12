@@ -16,7 +16,8 @@ uses
   PCM.Notenrechner.Notentyp in 'Modules\PCM.Notenrechner.Notentyp.pas' {frm_Notenrechner_Notentyp},
   PCMNotenrechner.Modul.C_Noten in 'Modules\PCMNotenrechner.Modul.C_Noten.pas' {frm_Noten},
   PCM.splash in 'PCM.splash.pas' {SplashScreen},
-  PCMNotenrechner.dxSettings in 'PCMNotenrechner.dxSettings.pas';
+  PCMNotenrechner.dxSettings in 'PCMNotenrechner.dxSettings.pas',
+  PCM.Notenrechner.Strings in 'Modules\PCM.Notenrechner.Strings.pas';
 
 {$R *.res}
 
@@ -49,7 +50,7 @@ begin
   {$ENDIF}
   TNtTranslator.SetNew(slocale,[],'de');
   Application.MainFormOnTaskbar := True;
-  Application.CreateForm(Tdm_PCM,dm_PCM);
-  Application.CreateForm(Tfrm_PCM_Main,frm_PCM_Main);
+  Application.CreateForm(Tdm_PCM, dm_PCM);
+  Application.CreateForm(Tfrm_PCM_Main, frm_PCM_Main);
   Application.Run;
 end.
