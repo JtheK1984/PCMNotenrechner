@@ -4,6 +4,9 @@
 # Kurzbeschreibung:
   PCM - Notenrechner
 
+# Beschreibung: 
+  Tool zum Berechnen der Notenstände für verschiedene Schulfäacher inklusiver Verwaltung von Schulnotentypen sowie Schulfäacher
+  
 # Entwicklungsumgebung:
   DELPHI 12.3 Athens
 
